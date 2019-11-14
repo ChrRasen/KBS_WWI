@@ -20,13 +20,8 @@ if(mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $StockItemName = $row["StockItemName"];
         $StockItemID = $row["StockItemID"];
-        if ($StockItemID == $search2) {
-            print($StockItemName);
-            break;
-        } else {
-            print($StockItemName . "<br>");
+        print($StockItemName . "<br>");
         }
-    }
 }else {
     print("No Results");
 }
