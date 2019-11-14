@@ -20,8 +20,9 @@ if(mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $StockItemName = $row["StockItemName"];
         $StockItemID = $row["StockItemID"];
-        print($StockItemName . "<br>");
-        }
+        $StockItemPrice = $row['UnitPrice'];
+        print($StockItemName ."<br> ". $StockItemPrice. "<br><br>");
+    }
 }else {
     print("No Results");
 }
