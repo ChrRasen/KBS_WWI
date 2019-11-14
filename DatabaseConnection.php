@@ -1,8 +1,8 @@
 <?php
     $host = "localhost";
     $databasename = "wideworldimporters";
-    $user = "root";
-    $pass = "";
+    $user = "WWI_Admin";
+    $pass = "S5]*p!~eT(8J";
     $connection = new mysqli($host, $user, $pass, $databasename);
 
     if ($connection->connect_error) {
