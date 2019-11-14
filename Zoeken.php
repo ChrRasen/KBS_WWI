@@ -21,7 +21,7 @@ if(mysqli_num_rows($result) > 0) {
         $StockItemName = $row["StockItemName"];
         $StockItemID = $row["StockItemID"];
         print($StockItemName . "<br>");
-        }
+    }
 }else {
     print("No Results");
 }
