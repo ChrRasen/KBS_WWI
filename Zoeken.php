@@ -21,7 +21,7 @@ if(mysqli_num_rows($result) > 0) {
         $StockItemName = $row["StockItemName"];
         $StockItemID = $row["StockItemID"];
         $StockItemPrice = $row['UnitPrice'];
-        print($StockItemName ." ". $StockItemPrice. "<br><br>");
+        print($StockItemName ."<br> ". $StockItemPrice. "<br><br>");
     }
 }else {
     print("No Results");
