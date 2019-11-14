@@ -13,6 +13,14 @@ include "databaseConnection.php";
     <input type="submit" value="zoeken">
 </form>
 
+<form action="Inlogpagina.php">
+    <input type="submit" value="Inloggen"><br>
+</form>
+
+<form action="Registreerpagina.php">
+    <input type="submit" value="Registreren"><br>
+</form>
+
 <form action="Categorie.php" method="GET">
 
 
