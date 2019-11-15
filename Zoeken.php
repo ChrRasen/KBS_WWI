@@ -27,8 +27,7 @@ if( $_GET['zoeken'] == ""){
         $StockItemID = $row["StockItemID"];
         $StockItemPrice = $row['UnitPrice'];
         $StockPhoto = '<img src="data:image/jpg;base64,' . $row['Photo'] . '">';
-        Print('<a href="http://localhost/Project%20KBS/Product.php?ProductID=' . $StockItemID . '">' . $StockPhoto . '</a><br>');
-        print($StockItemName . "<br> " . $StockItemPrice . "<br><br>");
+        Print('<a href="http://localhost/KBS_WWI/Product.php?ProductID=' . $StockItemID . '">' . $StockPhoto. '<br>' .$StockItemName . "<br> " . $StockItemPrice . "<br>". '</a><br>');
     }
 }else {
     print("Geen resultaten");
