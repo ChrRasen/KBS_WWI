@@ -1,5 +1,12 @@
 <?php
-include "databaseConnection.php";
+session_start();
+if(isset($_SESSION["aantal"])) {
+    unset($_SESSION["aantal"]);
+}
+if(isset($_SESSION["offset"])){
+    unset($_SESSION["offset"]);
+}
+include "databaseConnection.php"
 ?>
 
 <html>
