@@ -82,7 +82,7 @@ if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
         $StockItemID = $row["StockItemID"];
         $StockItemPrice = $row['UnitPrice'];
         $StockPhoto = '<img src="data:image/jpg;base64,' . $row['Photo'] . '">';
-        Print('<a href="http://localhost/KBS_WWI/Product.php?ProductID=' . $StockItemID . '">' . $StockPhoto. '<br>' .$StockItemName . "<br> " . $StockItemPrice . "<br>". '</a><br>');
+        Print('<a href="http://localhost/KBS_WWI/Product.php?ProductID=' . $StockItemID . '">' . $StockPhoto. '<br>' .$StockItemName . "<br> " ."€". preg_replace('/\./', ',', $StockItemPrice) . "<br>". '</a><br>');
     }
 }else {
     print("Geen resultaten");
