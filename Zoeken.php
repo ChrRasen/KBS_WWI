@@ -2,7 +2,8 @@
 session_start();
 include "databaseConnection.php";
 
-print($_SESSION["search"]);
+
+
 //zorgt er voor dat de juiste aantal producten laat zien
 if(isset($_GET["offset"])){
     $offset = $_GET["offset"];
@@ -46,7 +47,7 @@ $_SESSION["search"] = $search2;
 $searchQuery = "SELECT * FROM stockitems WHERE StockItemName LIKE ? OR StockItemID = ? OR SearchDetails LIKE ? LIMIT ? OFFSET ?";
 
 $searchSQL = mysqli_prepare($connection, $searchQuery);
-mysqli_stmt_bind_param($searchSQL, 'sssii', $search,$search2, $search, $limit, $offset);
+mysqli_stmt_bind_param($searchSQL, 'sssii', $search,$search2, $search, $limit, $offsetSQL);
 mysqli_stmt_execute($searchSQL);
 $result = mysqli_stmt_get_result($searchSQL);
 
@@ -73,7 +74,7 @@ $maxPages = $maxitems / $limit;
 <body>
 <br>
 <?php
-if( isset($_GET['zoeken']) && isset($_SESSION["search"])){
+if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
     print("Vul iets in!");
 }elseif(mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
@@ -130,5 +131,9 @@ if( isset($_GET['zoeken']) && isset($_SESSION["search"])){
     <input type="submit" value=100 name="aantal">
 
 </form>
+
+<?php
+print($offset.$offsetSQL)
+?>
 </body>
 </html>
