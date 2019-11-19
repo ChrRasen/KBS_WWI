@@ -3,8 +3,8 @@ session_start();
 include "databaseConnection.php";
 
 //zorgt er voor dat de juiste waardes er zijn
-if(isset($_SESSION["offset"])){
-    $offset = $_SESSION["offset"];
+if(isset($_GET["offset"])){
+    $offset = $_GET["offset"];
 }else{
     $offset = 0;
 }
@@ -27,26 +27,36 @@ if(!isset($_GET["aantal"]) && !isset($_SESSION["Saantal"])){
 
 //zorgt er voor dat het de goede producten laat zien (0 tot 25 of 26 tot 50 etc.)
 if(isset($_GET["pagina"])){
-    if($_GET["pagina"] == "terug"){
-        $offset = $offset -1;
-    }else{
-        $offset = $offset +1;
-    }
+    $offset = $_GET['pagina'];
+    print($offset. "yeet");
 }
+
+//moet error message weergeven
 if($offset < 0){
     $offset = 0;
 }
-$offsetSQL = $offset * $limit;
 
 $offsetSQL = $limit * $offset;
-$_SESSION["offset"] = $offset;
 $_SESSION["CAT"] = $categorieNaam;
 $_SESSION["Saantal"] = $limit;
+
+//debug code
 print($categorieNaam. "<br>");
 print($limit. "<br>");
 print($offset. "<br>");
 print($offsetSQL. "<br>");
 //$result = mysqli_query($connection, "SELECT * FROM stockitems");
+
+//sql query voor een count zodat je kan kijken of die niet veder kan gaan en maximum aantal pagina's kan berekenen
+$max = "SELECT COUNT(s.stockitemid) AS maxitems FROM stockitems S JOIN stockitemstockgroups SI
+ON S.stockitemid = SI.StockItemID JOIN stockgroups SG
+ON SI.StockGroupID = SG.StockGroupID
+WHERE StockGroupName =?";
+
+$statementMax = mysqli_prepare($connection, $max);
+mysqli_stmt_bind_param($statementMax, 's', $categorieNaam);
+mysqli_stmt_execute($statementMax);
+$resultmax = mysqli_stmt_get_result($statementMax);
 
 //de sql query om de producten te laten zien
 $categorie = "SELECT s.stockitemname, s.stockitemid
@@ -55,9 +65,6 @@ ON S.stockitemid = SI.StockItemID JOIN stockgroups SG
 ON SI.StockGroupID = SG.StockGroupID
 WHERE StockGroupName =?
 LIMIT ? OFFSET ?";
-
-//sql query voor een count zodat je kan kijken of die niet veder kan gaan en maximum aantal pagina's kan berekenen
-
 
 $statement = mysqli_prepare($connection, $categorie);
 mysqli_stmt_bind_param($statement, 'sii', $categorieNaam, $limit, $offsetSQL);
@@ -70,8 +77,14 @@ $result = mysqli_stmt_get_result($statement);
 <body>
 <br>
 <?php
-while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-{
+while ($row = mysqli_fetch_array($resultmax, MYSQLI_ASSOC)) {
+   $maxItems = $row["maxitems"];
+}
+
+$maxPages = $maxItems / $limit;
+print($maxPages);
+
+while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     $StockItemName = $row["stockitemname"];
     $StockID = $row["stockitemid"];
     echo '<a href="http://localhost/Project%20KBS/Product.php?ProductID='.$StockID.'">"'.$StockItemName.'"</a>';
@@ -80,14 +93,40 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 ?>
     <form action="Categorie.php" method="GET">
         <?php //zorgt er voor dat je niet terug kan wanneer je bij de eerste bent
-        if($offset != 0){echo'
-        <input type="submit" value="terug" name="pagina">
-        ';} ?>
+        if($offset != 0){
+            $offset--;
+            echo'<button type="submit" value='.$offset.' name="pagina"> vorige </button>
+        '; $offset++;}
+        else{ echo'<input type="submit" value="vorige" name="pagina" disabled>
+        ';}
+        ?>
+
         <?php
         //while loop die zorgt dat je snell terug kan gaan of veder kan gaan
-
+        $i = 0;
+        while($i < $maxPages){
+            if($i != $offset){
+                $n= $i + 1;
+                echo'<button type="submit" value='.$i.' name="pagina"> '.$n.' </button>';
+                ;}
+                else{ $n= $i + 1;
+                    echo'<input type="submit" value='.$n.' disabled>';
+                   }
+            $i++;
+        }
         ?>
-        <input type="submit" value="volgende" name="pagina">
+
+        <?php
+        //zorgt er voor dat je naar de volgende pagina kan, en je kan er niet op klikken wanneer je bij de laatste pagina bent
+        if($offset + 1 < $maxPages) {
+            $offset++;
+            echo '<button type="submit" value='.$offset.' name="pagina"> volgende </button>';
+        $offset--;}
+        else{
+            echo '<input type="submit" value="volgende" disabled>';
+        }
+        ?>
+        <br>
         <br>
         <input type="submit" value=25 name="aantal">
         <input type="submit" value=50 name="aantal">
