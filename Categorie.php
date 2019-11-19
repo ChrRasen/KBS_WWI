@@ -28,7 +28,6 @@ if(!isset($_GET["aantal"]) && !isset($_SESSION["Saantal"])){
 //zorgt er voor dat het de goede producten laat zien (0 tot 25 of 26 tot 50 etc.)
 if(isset($_GET["pagina"])){
     $offset = $_GET['pagina'];
-    print($offset. "yeet");
 }
 
 //moet error message weergeven
@@ -40,12 +39,8 @@ $offsetSQL = $limit * $offset;
 $_SESSION["CAT"] = $categorieNaam;
 $_SESSION["Saantal"] = $limit;
 
-//debug code
+
 print($categorieNaam. "<br>");
-print($limit. "<br>");
-print($offset. "<br>");
-print($offsetSQL. "<br>");
-//$result = mysqli_query($connection, "SELECT * FROM stockitems");
 
 //sql query voor een count zodat je kan kijken of die niet veder kan gaan en maximum aantal pagina's kan berekenen
 $max = "SELECT COUNT(s.stockitemid) AS maxitems FROM stockitems S JOIN stockitemstockgroups SI
@@ -82,7 +77,6 @@ while ($row = mysqli_fetch_array($resultmax, MYSQLI_ASSOC)) {
 }
 
 $maxPages = $maxItems / $limit;
-print($maxPages);
 
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     $StockItemName = $row["stockitemname"];
