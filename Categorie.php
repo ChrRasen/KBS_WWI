@@ -87,7 +87,7 @@ print($maxPages);
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     $StockItemName = $row["stockitemname"];
     $StockID = $row["stockitemid"];
-    echo '<a href="http://localhost/Project%20KBS/Product.php?ProductID='.$StockID.'">"'.$StockItemName.'"</a>';
+    echo '<a href="http://localhost/KBS/KBS_WWI/Product.php?ProductID='.$StockID.'">"'.$StockItemName.'"</a>';
     print("<br>");
 }
 ?>
