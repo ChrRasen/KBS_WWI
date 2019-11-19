@@ -54,7 +54,7 @@ mysqli_stmt_execute($statementMax);
 $resultmax = mysqli_stmt_get_result($statementMax);
 
 //de sql query om de producten te laten zien
-$categorie = "SELECT s.stockitemname, s.stockitemid
+$categorie = "SELECT s.stockitemname, s.stockitemid, Photo, UnitPrice
 FROM stockitems S JOIN stockitemstockgroups SI
 ON S.stockitemid = SI.StockItemID JOIN stockgroups SG
 ON SI.StockGroupID = SG.StockGroupID
@@ -69,6 +69,13 @@ $result = mysqli_stmt_get_result($statement);
 
 ?>
 <html>
+<head>
+    <style>
+        img {
+            width:150px;
+        }
+    </style>
+</head>
 <body>
 <br>
 <?php
@@ -81,7 +88,11 @@ $maxPages = $maxItems / $limit;
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     $StockItemName = $row["stockitemname"];
     $StockID = $row["stockitemid"];
-    echo '<a href="http://localhost/KBS/KBS_WWI/Product.php?ProductID='.$StockID.'">"'.$StockItemName.'"</a>';
+    $StockPhoto = $row["Photo"];
+    $StockItemPrice = $row["UnitPrice"];
+    $StockItemPrice = $row['UnitPrice'];
+    $StockPhoto = '<img src="data:image/jpg;base64,' . $row['Photo'] . '">';
+    Print('<a href="http://localhost/KBS/KBS_WWI/Product.php?ProductID=' . $StockID . '">' . $StockPhoto. '<br>' .$StockItemName . "<br> " ."€". preg_replace('/\./', ',', $StockItemPrice) . "<br>". '</a><br>');
     print("<br>");
 }
 ?>
