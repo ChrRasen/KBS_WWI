@@ -2,12 +2,7 @@
 
 <?php
 session_start();
-$host = "localhost";
-$databasename = "wideworldimporters";
-$user = "root";
-$pass = "";
-$port = 3306;
-$connection = mysqli_connect($host,$user,$pass,$databasename,$port);
+include "DatabaseConnection.php";
 
 $StockID = $_GET["ProductID"];
 
@@ -28,7 +23,7 @@ $photo = mysqli_query($connection, "SELECT Photo FROM stockitems WHERE StockItem
     <?php
     print($resultStockItemDetails["StockItemName"] . '<br>');
     echo '<a target="_blank" href="'. $resultStockItemDetails["Video"] .'">Video</a><br>';
-    print("price per unit: " . $resultStockItemDetails["UnitPrice"] . '<br>');
+    print("price per unit: €   " . $resultStockItemDetails["UnitPrice"] . '<br>');
     print("Quantity on hand:  " . $resultStock["QuantityOnHand"] . '<br>');
     echo '<img src="'.$resultPhoto['Photo'].'" alt="foto"/>' . '<br>';
     ?>
