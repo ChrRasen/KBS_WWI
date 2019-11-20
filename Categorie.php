@@ -54,11 +54,15 @@ mysqli_stmt_execute($statementMax);
 $resultmax = mysqli_stmt_get_result($statementMax);
 
 //de sql query om de producten te laten zien
-$categorie = "SELECT s.stockitemname, s.stockitemid, Photo, UnitPrice
-FROM stockitems S JOIN stockitemstockgroups SI
-ON S.stockitemid = SI.StockItemID JOIN stockgroups SG
-ON SI.StockGroupID = SG.StockGroupID
+$categorie = "
+SELECT s.stockitemname, s.stockitemid, F.Photo, UnitPrice
+FROM stockitems S 
+JOIN stockitemstockgroups SI ON S.stockitemid = SI.StockItemID 
+JOIN stockgroups SG ON SI.StockGroupID = SG.StockGroupID
+JOIN Foto F ON S.StockitemID = F.StockitemID
 WHERE StockGroupName =?
+GROUP BY S.StockitemID
+ORDER BY S.StockitemID
 LIMIT ? OFFSET ?";
 
 $statement = mysqli_prepare($connection, $categorie);
@@ -89,10 +93,8 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     $StockItemName = $row["stockitemname"];
     $StockID = $row["stockitemid"];
     $StockPhoto = $row["Photo"];
-    $StockItemPrice = $row["UnitPrice"];
     $StockItemPrice = $row['UnitPrice'];
-    $StockPhoto = '<img src="data:image/jpg;base64,' . $row['Photo'] . '">';
-    Print('<a href="http://localhost/KBS/KBS_WWI/Product.php?ProductID=' . $StockID . '">' . $StockPhoto. '<br>' .$StockItemName . "<br> " ."€". preg_replace('/\./', ',', $StockItemPrice) . "<br>". '</a><br>');
+    Print('<a href="http://localhost/KBS/KBS_WWI/Product.php?ProductID=' . $StockID . '">' . "<img src=\"$StockPhoto\" style=\"width: 150px\">". '<br>' .$StockItemName . "<br> " ."€". preg_replace('/\./', ',', $StockItemPrice) . "<br>". '</a><br>');
     print("<br>");
 }
 ?>
