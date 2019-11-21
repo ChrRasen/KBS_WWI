@@ -1,11 +1,6 @@
 <html>
 <?php
 include "DatabaseConnection.php";
-//$registratie = $connection->prepare("INSERT INTO Klantgegevens(naam, tussenvoegsel, achternaam, email, wachtwoord, postcode, straatnaam, huisnummer, woonplaats) VALUES(?,?,?,?,?,?,?,?,?)");
-//$prepRegistratie = mysqli_prepare($connection, $registratie);
-//mysqli_stmt_bind_param($prepRegistratie, 'ssssss,', $naam, $tussenvoegsel, $achternaam, $email, $wachtwoord, $adres);
-//mysqli_stmt_execute($prepRegistratie);
-//$result = mysqli_stmt_get_result($prepRegistratie);
 ?>
 <head>
 </head>
@@ -25,42 +20,60 @@ include "DatabaseConnection.php";
 </form>
 
 <?php
-if(!isset($_POST['submit'])) {
-    return FALSE;
+if(!isset($_POST['submit'])){
+    return false;
 }else {
-    $naam = $_POST['naam'];
-    $tussenvoegsel = $_POST['tussenvoegsel'];
-    $achternaam = $_POST['achternaam'];
     $email = $_POST['email'];
-    $wachtwoord = $_POST['wachtwoord'];
-    $postcode = $_POST['postcode'];
-    $straatnaam = $_POST['straatnaam'];
-    $huisnummer = $_POST['huisnummer'];
-    $woonplaatst = $_POST['woonplaats'];
 }
 
-$controle = $connection->prepare("SELECT email FROM klantgegevens");
+$query = "SELECT * FROM  `klantgegevens`  WHERE `email`= ?";
+$searchQuery = mysqli_prepare($connection, $query);
+mysqli_stmt_bind_param($searchQuery, 's', $email);
+mysqli_stmt_execute($searchQuery);
+$result = mysqli_stmt_get_result($searchQuery);
 
 if(!isset($_POST['submit'])){
     return FALSE;
-}elseif($_POST['email'] == $controle){
+}elseif (mysqli_num_rows($result)){
     print("Email address al in gebruik");
+    die;
 }elseif($_POST['naam'] == "" OR $_POST['achternaam'] == "" OR $_POST['email'] == "" OR $_POST['wachtwoord'] == "" OR $_POST['postcode'] == "" OR $_POST['straatnaam'] == "" OR $_POST['huisnummer'] == "" OR $_POST['straatnaam'] == ""){
     print("Naam, Achternaam, Email, Wachtwoord, Postcode, Straatnaam, Huisnummer en Woonplaats zijn allemaal verplicht");
+    die;
 }elseif($_POST['wachtwoord'] != $_POST['wachtwoord2']){
     print("Wachtwoorden komen niet overeen");
-}else {
-    print("Account is aangemaakt");
+    die;
+}else{
+    print("Account Aangemaakt");
 }
 
-    $registratie = $connection->prepare("INSERT INTO Klantgegevens(naam, tussenvoegsel, achternaam, email, wachtwoord, postcode, straatnaam, huisnummer, woonplaats) VALUES(?,?,?,?,?,?,?,?,?)");
-    $prepareSQL = mysqli_prepare($connection, $registratie);
-    mysqli_stmt_bind_param($prepareSQL, 'sssssssss,', $naam, $tussenvoegsel, $achternaam, $email, $wachtwoord, $postcode, $straatnaam, $huisnummer, $straatnaam);
-    mysqli_stmt_execute($prepareSQL);
-    if(mysqli_stmt_affected_rows($prepareSQL) != 1){
-        die("issue");
-    }
-    ?>
+$link = $connection;
 
+/* check connection */
+if (!$link) {
+    printf("Connect failed: %s\n", mysqli_connect_error());
+    exit();
+}
+
+$stmt = mysqli_prepare($link, "INSERT INTO klantgegevens VALUES(?,?,?,?,?,?,?,?,?)");
+mysqli_stmt_bind_param($stmt, 'sssssssis', $email, $naam, $tussenvoegsel, $achternaam, $wachtwoord, $postcode, $straatnaam, $huisnummer, $woonplaatst);
+
+$naam = $_POST['naam'];
+$tussenvoegsel = $_POST['tussenvoegsel'];
+$achternaam = $_POST['achternaam'];
+$email = $_POST['email'];
+$wachtwoord = $_POST['wachtwoord'];
+$postcode = $_POST['postcode'];
+$straatnaam = $_POST['straatnaam'];
+$huisnummer = $_POST['huisnummer'];
+$woonplaatst = $_POST['woonplaats'];
+
+/* execute prepared statement */
+mysqli_stmt_execute($stmt);
+
+/* close statement and connection */
+mysqli_stmt_close($stmt);
+
+?>
 </body>
 </html>
