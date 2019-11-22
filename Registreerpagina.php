@@ -76,7 +76,7 @@ $straatnaam = $_POST['straatnaam'];
 $huisnummer = $_POST['huisnummer'];
 $woonplaatst = $_POST['woonplaats'];
 
-//Geeft een hash aan een ingevuld wachtwoord (code)
+//Geeft een hash aan een ingevuld wachtwoord gebruikt SHA512(code)
 $hashed = hash('sha512', $wachtwoord);
 
 /* voert de prepared statement uit */
