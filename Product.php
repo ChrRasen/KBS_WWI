@@ -28,10 +28,12 @@ $result2 = mysqli_stmt_get_result($searchSQL2);
     $video = $resultStockItemDetails["Video"];
 
     print($resultStockItemDetails["StockItemName"] . '<br>');
-    echo '<iframe width="600" height="400"
-           src="'.$video.'">
+    if($video != "") {
+        echo '<iframe width="600" height="400"
+           src="' . $video . '">
            </iframe>
             <br>';
+    }
     if($korting != ""){
         print("price per unit: €   " . $prijsMetKorting . "<br>");
         print($korting * 100 . '% korting <br>');
@@ -54,7 +56,7 @@ $result2 = mysqli_stmt_get_result($searchSQL2);
             }
         }
     }
-    
+
     ?>
 </body>
 </html>
