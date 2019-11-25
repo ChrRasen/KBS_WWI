@@ -6,7 +6,7 @@ include "DatabaseConnection.php";
 
 $StockID = $_GET["ProductID"];
 
-$stockItemDetails = mysqli_query($connection, "SELECT Video, UnitPrice, StockItemName, discount FROM stockitems WHERE StockItemID = $StockID");
+$stockItemDetails = mysqli_query($connection, "SELECT Video, UnitPrice, StockItemName, discount, photo FROM stockitems WHERE StockItemID = $StockID");
 $resultStockItemDetails = mysqli_fetch_array($stockItemDetails);
 
 $stock = mysqli_query($connection, "SELECT QuantityOnHand FROM stockitemholdings WHERE StockItemID = $StockID");
@@ -37,13 +37,24 @@ $result2 = mysqli_stmt_get_result($searchSQL2);
         print($korting * 100 . '% korting <br>');
         echo' <font size = "4" color="Blue">   verzend kosten: €2,50</font>   <br>';
         print("Quantity on hand:  " . $resultStock["QuantityOnHand"] . '<br>');
-        echo '<img src="'.$resultPhoto['Photo'].'" alt="foto"/>' . '<br>';
+        if(mysqli_num_rows($result2) > 0) {
+            while ($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) {
+                $StockPhoto2 = $row["Photo"];
+                print("<img src=\"$StockPhoto2\" style=\"width: 150px\"><br>");
+            }
+        }
     }else{
     print("price per unit: €   " . $prijs . "<br>");
     echo' <font size = "4" color="Blue">   verzend kosten: €2,50</font>   <br>';
     print("Quantity on hand:  " . $resultStock["QuantityOnHand"] . '<br>');
-    echo '<img src="'.$resultPhoto['Photo'].'" alt="foto"/>' . '<br>';
+        if(mysqli_num_rows($result2) > 0) {
+            while ($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) {
+                $StockPhoto2 = $row["Photo"];
+                print("<img src=\"$StockPhoto2\" style=\"width: 150px\"><br>");
+            }
+        }
     }
+    
     ?>
 </body>
 </html>
