@@ -42,9 +42,14 @@ if(isset($_GET['zoeken'])) {
     $search = "%" . $_SESSION['search'] . "%";
     $search2 = $_SESSION['search'];
 }
-
 $_SESSION["search"] = $search2;
-$searchQuery = "SELECT * FROM stockitems WHERE StockItemName LIKE ? OR StockItemID = ? OR SearchDetails LIKE ? LIMIT ? OFFSET ?";
+
+$searchQuery = "SELECT S.StockItemID,S.SearchDetails,S.StockItemName,S.UnitPrice,F.Photo FROM stockitems S
+JOIN foto F ON S.StockitemID = F.StockitemID
+WHERE S.StockItemName LIKE ? OR S.StockItemID = ? OR S.SearchDetails LIKE ? OR F.Photo = S.StockItemID
+GROUP BY S.StockItemID
+ORDER BY S.StockItemID
+LIMIT ? OFFSET ?";
 
 $searchSQL = mysqli_prepare($connection, $searchQuery);
 mysqli_stmt_bind_param($searchSQL, 'sssii', $search,$search2, $search, $limit, $offsetSQL);
@@ -66,11 +71,6 @@ $maxPages = $maxitems / $limit;
 
 <html>
 <head></head>
-<style>
-    img {
-        width:150px;
-    }
-</style>
 <body>
 <br>
 <?php
@@ -81,12 +81,14 @@ if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
         $StockItemName = $row["StockItemName"];
         $StockItemID = $row["StockItemID"];
         $StockItemPrice = $row['UnitPrice'];
-        $StockPhoto = '<img src="data:image/jpg;base64,' . $row['Photo'] . '">';
-        Print('<a href="http://localhost/KBS_WWI/Product.php?ProductID=' . $StockItemID . '">' . $StockPhoto. '<br>' .$StockItemName . "<br> " ."€". preg_replace('/\./', ',', $StockItemPrice) . "<br>". '</a><br>');
+        $StockPhoto2 = $row['Photo'];
+        $Picture = "<img src=\"$StockPhoto2\" style=\"width: 150px\">";
+        Print('<a href="http://localhost/KBS/KBS_WWI/Product.php?ProductID=' . $StockItemID . '">' . $Picture ."<br>" . $StockItemName . "<br> " . $StockItemPrice . "<br><br>".'</a><br>');
     }
 }else {
     print("Geen resultaten");
 }
+
 ?>
 
 <form action="Zoeken.php" method="GET">
