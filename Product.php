@@ -26,6 +26,11 @@ $result2 = mysqli_stmt_get_result($searchSQL2);
     $prijs = floatval($resultStockItemDetails['UnitPrice']);
     $prijsMetKorting = $prijs * (1 - $korting);
     $video = $resultStockItemDetails["Video"];
+    $quantity = intval($resultStock["QuantityOnHand"]);
+
+    if ($quantity >= 30){
+        $quantity = '30+';
+    }
 
     print($resultStockItemDetails["StockItemName"] . '<br>');
     if($video != "") {
@@ -38,7 +43,7 @@ $result2 = mysqli_stmt_get_result($searchSQL2);
         print("price per unit: €   " . $prijsMetKorting . "<br>");
         print($korting * 100 . '% korting <br>');
         echo' <font size = "4" color="Blue">   verzend kosten: €2,50</font>   <br>';
-        print("Quantity on hand:  " . $resultStock["QuantityOnHand"] . '<br>');
+        print("Quantity on hand:  " . $quantity . '<br>');
         if(mysqli_num_rows($result2) > 0) {
             while ($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) {
                 $StockPhoto2 = $row["Photo"];
@@ -48,7 +53,7 @@ $result2 = mysqli_stmt_get_result($searchSQL2);
     }else{
     print("price per unit: €   " . $prijs . "<br>");
     echo' <font size = "4" color="Blue">   verzend kosten: €2,50</font>   <br>';
-    print("Quantity on hand:  " . $resultStock["QuantityOnHand"] . '<br>');
+    print("Quantity on hand:  " . $quantity . '<br>');
         if(mysqli_num_rows($result2) > 0) {
             while ($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) {
                 $StockPhoto2 = $row["Photo"];
