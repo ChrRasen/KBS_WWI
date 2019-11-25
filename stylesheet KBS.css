@@ -1,0 +1,13 @@
+form.center-block {
+    margin-top: 5%;
+    display: block;
+    margin-left: 45%;
+    margin-right: 50%;;
+} body {
+    background-color: lightblue;
+} div.center-text {
+        font-family: Bahnschrift;
+        margin-top: 5%;
+        margin-left: 46%;
+        margin-right: 55%;
+}
