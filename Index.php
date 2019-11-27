@@ -11,9 +11,16 @@ include "databaseConnection.php"
 
 <html>
 <head>
-    WorldWideImporters
+    <meta charset="UTF-8">
+    <title>WideWorldImporters</title>
 </head>
-<body>
+<div class="header">
+
+    <h2>WideWorldImporters</h2>
+
+    <body style="background-color: cadetblue">
+
+</div>
 
 <form action="Zoeken.php" method="GET">
     <input type="text" name="zoeken">
