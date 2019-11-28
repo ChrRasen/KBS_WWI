@@ -1,3 +1,6 @@
+<?php
+session_start()
+?>
 <html>
 <head>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -51,30 +54,33 @@
 
 
 <div class="content"></div>
-
 <!-- The Modal -->
 <div id="myModal" class="modal">
     <div class="form">
-        <form  class="register-form">
-            <input type="text" placeholder="voornaam"/>
-            <input type="password" placeholder="wachtwoord"/>
-            <input type="password" placeholder="wachtwoord controleren"/>
-            <input type="text" placeholder="email address"/>
-            <input type="text" placeholder="postcode"/>
-            <input type="text" placeholder="straatnaam"/>
-            <input type="text" placeholder="huisnummer"/>
-            <input type="text" placeholder="woonplaats"/>
-            <button>create</button>
+        <form  class="register-form" action="header.php" method="post">
+            <input type="text" name="naam" placeholder="voornaam"/>
+            <input type="text" name="email" placeholder="email address"/>
+            <input type="text" name="tussenvoegsel" placeholder="tussenvoegsel"><br>
+            <input type="text" name="achternaam" placeholder="achternaam"><br>
+            <input type="password" name="wachtwoord" placeholder="wachtwoord"/>
+            <input type="password" name="wachtwoord2" placeholder="wachtwoord controleren"/>
+            <input type="text" name="postcode" placeholder="postcode"/>
+            <input type="text" name="straatnaam" placeholder="straatnaam"/>
+            <input type="text" name="huisnummer" placeholder="huisnummer"/>
+            <input type="text" name="woonplaats" placeholder="woonplaats"/>
+            <button type="submit" name="submitr">create</button>
             <p class="message">Hebt u al een account? <a href="#">Login</a></p>
         </form>
-        <form class="login-form">
-            <input type="text" placeholder="email"/>
-            <input type="password" placeholder="wachtwoord"/>
-            <button>login</button>
+        <form class="login-form" action="header.php" method="post">
+            <input type="text" name="emailadres" placeholder="email"/>
+            <input type="password" name="wachtwoord" placeholder="wachtwoord"/>
+            <button type="submit" name="submitl">login</button>
             <p class="message">Niet geregisteerd? <a href="#">Creëer een account</a></p>
         </form>
     </div>
 </div>
+
+
 <!-- Javascripts -->
 
 <script  src="javascript/js.js"></script>
@@ -93,6 +99,10 @@
         }
     }
 </script>
+<?php
+include('Registreerpagina.php');
+include('Inlogpagina.php');
+?>
 </body>
 
 </html>

@@ -54,7 +54,7 @@ print("");
 <div class="center-text">
 <h1>Inloggen</h1>
 </div>
-<form class="center-block" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+<form action="Inlogpagina.php" method="post">
     <div>
 Emailadres: <input  type="text" name="emailadres"><br>
 </div>
