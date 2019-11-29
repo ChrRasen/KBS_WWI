@@ -112,8 +112,9 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                 $n= $i + 1;
                 echo'<button type="submit" value='.$i.' name="pagina"> '.$n.' </button>';
                 ;}
-                else{ $n= $i + 1;
-                    echo'<button type="submit" value='.$n.' disabled>'.$n.'</button';
+                else{
+                    $n= $i + 1;
+                    echo'<button type="submit" value='.$i.' name="pagina" disabled> '.$n.' </button>';
                    }
             $i++;
         }
