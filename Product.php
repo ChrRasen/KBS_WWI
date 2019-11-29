@@ -1,5 +1,4 @@
 <html>
-
 <?php
 session_start();
 include "DatabaseConnection.php";

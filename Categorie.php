@@ -39,9 +39,6 @@ $offsetSQL = $limit * $offset;
 $_SESSION["CAT"] = $categorieNaam;
 $_SESSION["Saantal"] = $limit;
 
-
-print($categorieNaam. "<br>");
-
 //sql query voor een count zodat je kan kijken of die niet veder kan gaan en maximum aantal pagina's kan berekenen
 $max = "SELECT COUNT(s.stockitemid) AS maxitems FROM stockitems S JOIN stockitemstockgroups SI
 ON S.stockitemid = SI.StockItemID JOIN stockgroups SG
@@ -74,15 +71,14 @@ $result = mysqli_stmt_get_result($statement);
 ?>
 <html>
 <head>
-    <style>
-        img {
-            width:150px;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="all" href="style/stylesheet.css">
 </head>
 <body>
-<br>
 <?php
+
+print("<h1>".$categorieNaam. "</h1>");
+
 while ($row = mysqli_fetch_array($resultmax, MYSQLI_ASSOC)) {
    $maxItems = $row["maxitems"];
 }
@@ -94,17 +90,17 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     $StockID = $row["stockitemid"];
     $StockPhoto = $row["Photo"];
     $StockItemPrice = $row['UnitPrice'];
-    Print('<a href="http://localhost/KBS/KBS_WWI/Product.php?ProductID=' . $StockID . '">' . "<img src=\"$StockPhoto\" style=\"width: 150px\">". '<br>' .$StockItemName . "<br> " ."€". preg_replace('/\./', ',', $StockItemPrice) . "<br>". '</a><br>');
-    print("<br>");
+    Print('<div class="product"><a href="http://localhost/KBS/KBS_WWI/Product.php?ProductID=' . $StockID . '">' . "<img src=\"$StockPhoto\" >". '<p>' .$StockItemName . " </p><p class='price'> " ."€". preg_replace('/\./', ',', $StockItemPrice) . "</p>". '</a></div>');
 }
 ?>
+<div class="paging">
     <form action="Categorie.php" method="GET">
         <?php //zorgt er voor dat je niet terug kan wanneer je bij de eerste bent
         if($offset != 0){
             $offset--;
-            echo'<button type="submit" value='.$offset.' name="pagina"> vorige </button>
+            echo'<button type="submit" value='.$offset.' name="pagina">Vorige</button>
         '; $offset++;}
-        else{ echo'<input type="submit" value="vorige" name="pagina" disabled>
+        else{ echo'<button type="submit" value="vorige" name="pagina" disabled >Vorige</button>
         ';}
         ?>
 
@@ -117,7 +113,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                 echo'<button type="submit" value='.$i.' name="pagina"> '.$n.' </button>';
                 ;}
                 else{ $n= $i + 1;
-                    echo'<input type="submit" value='.$n.' disabled>';
+                    echo'<button type="submit" value='.$n.' disabled>'.$n.'</button';
                    }
             $i++;
         }
@@ -127,18 +123,17 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         //zorgt er voor dat je naar de volgende pagina kan, en je kan er niet op klikken wanneer je bij de laatste pagina bent
         if($offset + 1 < $maxPages) {
             $offset++;
-            echo '<button type="submit" value='.$offset.' name="pagina"> volgende </button>';
+            echo '<button type="submit" value='.$offset.' name="pagina">Volgende </button>';
         $offset--;}
         else{
-            echo '<input type="submit" value="volgende" disabled>';
+            echo '<button type="submit" value="volgende" disabled>Volgende</button>';
         }
         ?>
-        <br>
-        <br>
-        <input type="submit" value=25 name="aantal">
-        <input type="submit" value=50 name="aantal">
-        <input type="submit" value=100 name="aantal">
+        <button type="submit" value=25 name="aantal">25</button>
+        <button type="submit" value=50 name="aantal">50</button>
+        <button type="submit" value=100 name="aantal">100</button>
     </form>
+</div>
 </body>
 </html>
 
