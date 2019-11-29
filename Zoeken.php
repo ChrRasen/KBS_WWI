@@ -72,7 +72,6 @@ $maxPages = $maxitems / $limit;
 <html>
 <head></head>
 <body>
-<br>
 <?php
 if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
     print("Vul iets in!");
@@ -82,8 +81,8 @@ if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
         $StockItemID = $row["StockItemID"];
         $StockItemPrice = $row['UnitPrice'];
         $StockPhoto2 = $row['Photo'];
-        $Picture = "<img src=\"$StockPhoto2\" style=\"width: 150px\">";
-        Print('<a href="http://localhost/KBS/KBS_WWI/Product.php?ProductID=' . $StockItemID . '">' . $Picture ."<br>" . $StockItemName . "<br> " . $StockItemPrice . "<br><br>".'</a><br>');
+        $Picture = "<img src=\"$StockPhoto2\" />";
+        Print('<div class="product"><a href="http://localhost/KBS/KBS_WWI/Product.php?ProductID=' . $StockItemID . '">' . $Picture ."<p>" . $StockItemName . "</p><p class='price'> " . $StockItemPrice . "</p>".'</a></div>');
     }
 }else {
     print("Geen resultaten");
@@ -126,8 +125,6 @@ if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
         echo '<input type="submit" value="volgende" disabled>';
     }
     ?>
-    <br>
-    <br>
     <input type="submit" value=25 name="aantal">
     <input type="submit" value=50 name="aantal">
     <input type="submit" value=100 name="aantal">
