@@ -21,6 +21,8 @@ $result2 = mysqli_stmt_get_result($searchSQL2);
 $reviewQuery = mysqli_query($connection, "SELECT count(*) AS aantal ,sum(score) AS totaalScore FROM review WHERE StockitemID = $StockID");
 $resultReview = mysqli_fetch_array($reviewQuery);
 
+$reviewComentaarQuery = mysqli_query($connection, "SELECT R.comentaar,R.score ,K.naam FROM review R join klantgegevens K ON K.email = R.email WHERE stockitemid = $StockID");
+
 ?>
 <body>
     <?php
@@ -31,8 +33,11 @@ $resultReview = mysqli_fetch_array($reviewQuery);
     $quantity = intval($resultStock["QuantityOnHand"]);
     $aantalReviews = $resultReview["aantal"];
     $totaalScore = $resultReview["totaalScore"];
-    $gemScore =  $totaalScore / $aantalReviews ;
+    $gemScore = "Nog geen reviews";
 
+    if($aantalReviews != 0 or $totaalScore != 0) {
+        $gemScore = $totaalScore / $aantalReviews;
+    }
 
 
     if ($quantity >= 30){
