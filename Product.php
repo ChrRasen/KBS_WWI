@@ -18,6 +18,9 @@ mysqli_stmt_bind_param($searchSQL2, 's', $StockID);
 mysqli_stmt_execute($searchSQL2);
 $result2 = mysqli_stmt_get_result($searchSQL2);
 
+$reviewQuery = mysqli_query($connection, "SELECT count(*) AS aantal ,sum(score) AS totaalScore FROM review WHERE StockitemID = $StockID");
+$resultReview = mysqli_fetch_array($reviewQuery);
+
 ?>
 <body>
     <?php
@@ -26,12 +29,21 @@ $result2 = mysqli_stmt_get_result($searchSQL2);
     $prijsMetKorting = $prijs * (1 - $korting);
     $video = $resultStockItemDetails["Video"];
     $quantity = intval($resultStock["QuantityOnHand"]);
+    $aantalReviews = $resultReview["aantal"];
+    $totaalScore = $resultReview["totaalScore"];
+    $gemScore =  $totaalScore / $aantalReviews ;
+
+
 
     if ($quantity >= 30){
         $quantity = '30+';
+    }elseif ($quantity == 0){
+        $quantity = "uitverkocht";
     }
+    //print($gemScore);
 
     print($resultStockItemDetails["StockItemName"] . '<br>');
+    print("Gemidelde score : " . $gemScore . "<br>");
     if($video != "") {
         echo '<iframe width="600" height="400"
            src="' . $video . '">
@@ -60,6 +72,11 @@ $result2 = mysqli_stmt_get_result($searchSQL2);
             }
         }
     }
+
+    echo'
+    <form action="shopping_cart.php" method="get"> 
+<button type="submit" name="erbij" value="'.$StockID.'"> toevoegen aan winkelwagen</button>
+        </form>';
 
     ?>
 </body>
