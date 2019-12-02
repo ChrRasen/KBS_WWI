@@ -28,8 +28,8 @@ a {
     padding: 10px;
 }
 .product img {
-    width: 100%;
-    height: auto;
+    max-width: 300px;
+    max-height: 300px;
 }
 .product .price {
     color: #eb0400;

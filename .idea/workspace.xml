@@ -4,11 +4,8 @@
     <list default="true" id="ececaa1e-921b-41c9-b79d-33022713c6ea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/Categorie.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/Categorie.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/A1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/Project/A1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/A2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/Project/A2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/notfound.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/Project/notfound.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stylesheet KBS.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/style/stylesheetCAT.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/style/stylesheetCAT.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,6 +55,16 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Index.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost/KBS_WWI/Index.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.Index.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />

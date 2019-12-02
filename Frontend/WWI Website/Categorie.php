@@ -90,7 +90,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     $StockID = $row["stockitemid"];
     $StockPhoto = $row["Photo"];
     $StockItemPrice = $row['UnitPrice'];
-    Print('<div class="product"><a href="http://localhost/KBS_WWI/Product.php?ProductID=' . $StockID . '">' . "<img src=\"$StockPhoto\" >". '<p>' .$StockItemName . " </p><p class='price'> " ."€". preg_replace('/\./', ',', $StockItemPrice) . "</p>". '</a></div>');
+    Print('<div class="product"><a href="http://localhost/KBS_WWI/Frontend/WWI Website/Product.php?ProductID=' . $StockID . '">' . "<img src=\"$StockPhoto\" >". '<p>' .$StockItemName . " </p><p class='price'> " ."€". preg_replace('/\./', ',', $StockItemPrice) . "</p>". '</a></div>');
 }
 ?>
 <div class="paging">
