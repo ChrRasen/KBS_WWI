@@ -6,14 +6,14 @@
 <header>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <div class="logo">
-        <a class="active" href="#home"><img src="images/logo's/logoWWI.png" alt="WWI"></a>
+        <a class="active" href="http://localhost/KBS_WWI/Frontend/WWI%20Website/Home.php"><img src="images/logo's/logoWWI.png" alt="WWI"></a>
     </div>
     <i class="fa fa-bars menu-toggle"></i>
     <ul class="nav">
         <li><a title="Wishlist" href="#"><i class="fas fa-heart"></i>
                 Verlanglijst
             </a></li>
-        <li><a title="Winkelwagen" href="#"><i class="fas fa-shopping-cart"></i>
+        <li><a title="Winkelwagen" href="http://localhost/KBS_WWI/Frontend/WWI%20Website/shopping_cart.php"><i class="fas fa-shopping-cart"></i>
                 Winkelwagen
             </a></li>
         <li><a title="Inloggen" id=myBtn><i class="fas fa-user"></i>
@@ -45,8 +45,8 @@
             </li>
             <li>
                 <div class="search-container">
-                    <form action="/action_page.php">
-                        <input type="text" placeholder="Search.." name="search">
+                    <form action="Zoeken.php">
+                        <input type="text" placeholder="Zoeken.." name="zoeken">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </div>

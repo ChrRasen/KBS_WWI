@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ececaa1e-921b-41c9-b79d-33022713c6ea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/Categorie.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/Categorie.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/style/stylesheetCAT.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/style/stylesheetCAT.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/style/Stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/style/Stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zoeken.php" beforeDir="false" afterPath="$PROJECT_DIR$/Zoeken.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

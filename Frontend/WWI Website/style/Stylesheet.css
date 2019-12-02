@@ -418,6 +418,7 @@ img {vertical-align: middle;}
 }
 
 .search input[type=text] {
+    color: black;
     padding: 8px;
     margin-top: 8px;
     border: none;

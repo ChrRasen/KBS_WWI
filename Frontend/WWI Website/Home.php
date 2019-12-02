@@ -45,7 +45,7 @@
 </script>
 <script>
     $(function(){
-        $("#header").load("index.php");
+        $("#header").load("header.php");
 
         $("#footer").load("footer.php");
     });
