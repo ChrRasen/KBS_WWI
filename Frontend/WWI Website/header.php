@@ -36,7 +36,7 @@
                         {
                             $cat = $row['StockGroupName'];
                             $cat = str_replace(' ', '+', $cat);
-                            echo '<a href="http://localhost/KBS_WWI/Frontend/WWI Website/Categorie.php?CAT='.$cat.'">'.$cat.'</a>';
+                            echo '<a href="http://localhost/KBS_WWI/Frontend/WWI Website/Categorie.php?CAT='.$cat.'">'.$row['StockGroupName'].'</a>';
 
                         }
                         ?>

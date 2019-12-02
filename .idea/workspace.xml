@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ececaa1e-921b-41c9-b79d-33022713c6ea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/Index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/Categorie.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/Categorie.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/style/Stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/style/Stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/stylesheet.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/A1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/Project/A1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/A2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/Project/A2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/notfound.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/Project/notfound.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stylesheet KBS.css" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +42,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Software\xampp\htdocs\KBS_WWI\Frontend\WWI Website" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -68,7 +73,7 @@
       <workItem from="1574866200326" duration="3774000" />
       <workItem from="1575027798789" duration="2521000" />
       <workItem from="1575280832934" duration="9210000" />
-      <workItem from="1575292862256" duration="725000" />
+      <workItem from="1575292862256" duration="1780000" />
     </task>
     <servers />
   </component>
