@@ -1,13 +1,6 @@
-<?php
-session_start()
-?>
 <html>
 <head>
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="all" href="style\Stylesheet.css">
+    <?php include "./Index.php" ?>
 </head>
 <body>
 <header>
@@ -32,12 +25,22 @@ session_start()
     <nav class="search">
         <ul>
             <li>
-                <div class="custom-select" style="width:200px;">
-                    <select>
-                        <option value="0">Select car:</option>
-                        <option value="1">Audi</option>
-                        <option value="2">BMW</option>
-                    </select>
+                <div class="dropdown">
+                    <button class="dropbtn">Categorieën
+                    </button>
+                    <div class="dropdown-content">
+                        <?php
+                        $i=0;
+                        $stockGroupName = mysqli_query($connection, "SELECT StockGroupName FROM stockgroups");
+                        while($row = mysqli_fetch_array($stockGroupName, MYSQLI_ASSOC))
+                        {
+                            $cat = $row['StockGroupName'];
+                            $cat = str_replace(' ', '+', $cat);
+                            echo '<a href="http://localhost/KBS_WWI/Frontend/WWI Website/Categorie.php?CAT='.$cat.'">'.$cat.'</a>';
+
+                        }
+                        ?>
+                    </div>
                 </div>
             </li>
             <li>
@@ -49,7 +52,7 @@ session_start()
                 </div>
             </li>
         </ul>
-
+    </nav>
 </header>
 
 

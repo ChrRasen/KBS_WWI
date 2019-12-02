@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ececaa1e-921b-41c9-b79d-33022713c6ea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Zoeken.php" beforeDir="false" afterPath="$PROJECT_DIR$/Zoeken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/Index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/style/Stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/style/Stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/stylesheet.css" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +39,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
   <component name="RunDashboard">
@@ -60,6 +67,8 @@
       <workItem from="1573736741667" duration="1135000" />
       <workItem from="1574866200326" duration="3774000" />
       <workItem from="1575027798789" duration="2521000" />
+      <workItem from="1575280832934" duration="9210000" />
+      <workItem from="1575292862256" duration="725000" />
     </task>
     <servers />
   </component>
