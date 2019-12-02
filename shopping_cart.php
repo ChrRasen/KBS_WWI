@@ -7,7 +7,9 @@ session_start();
 include "DatabaseConnection.php";
 $producten = array();
 
-if (!($_SESSION["Ses_producten"] === null)){
+if(empty($_SESSION["Ses_producten"])){
+    print('winkelwagen is nog leeg');
+}elseif (!($_SESSION["Ses_producten"] === null)){
     $producten = $_SESSION["Ses_producten"];
 }
 
@@ -48,12 +50,9 @@ foreach($producten as $index => $waarde) {
     echo'<br>';
 
 }
-echo '<button type="submit" value="submit">aanpassen</button> 
+echo '<button type="submit" value="submit">Toevoegen</button> 
     </form>';
 $_SESSION["Ses_producten"] = $producten;
-
-
-
 ?>
 <a href="Index.php">verder met winkelen</a>
 
