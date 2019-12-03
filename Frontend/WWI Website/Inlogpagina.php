@@ -30,10 +30,10 @@ if(!isset($_POST['submitl'])){
 print("");
 }else
     if(mysqli_num_rows($result) == 1){
-    print("Ingelogd");
+        echo "<p align=center>Ingelogd u wordt doorverwezen.</p> ";
     $_SESSION["loggedin"] = true;
     $_SESSION["email"] = $emailadres;
 }else{
-    print("Email of wachtwoord klopt niet.");
+        echo "<p align=center>Email of wachtwoord klopt niet.</p> ";
 }
 ?>

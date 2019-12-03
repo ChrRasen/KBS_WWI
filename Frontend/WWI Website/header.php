@@ -1,7 +1,30 @@
 <html>
+<script>
+    <!--
+
+    function autoChange()
+    {var timeID = setTimeout("location.href= './Home.php'", 3000)}
+
+    (function()
+    {if( window.localStorage )
+    {if( !localStorage.getItem('firstLoad') )
+    {localStorage['firstLoad'] = true;
+        window.location.reload();
+    }else localStorage.removeItem('firstLoad');}})();
+    //-->
+</script>
 <head>
     <?php include "./Index.php" ?>
 </head>
+<?php
+if(empty($_SESSION["loggedin"])){
+    print("");
+}elseif($_SESSION["loggedin"] == true){
+    print("<BODY onLoad=\"autoChange()\">");
+}else{
+    print("<BODY>");
+}
+?>
 <body>
 <header>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -56,7 +79,7 @@
 </header>
 
 
-<div class="content"></div>
+
 <!-- The Modal -->
 <div id="myModal" class="modal">
     <div class="form">
