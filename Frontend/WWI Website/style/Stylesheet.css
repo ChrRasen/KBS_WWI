@@ -89,7 +89,6 @@ header .menu-toggle{
     margin: 0 auto;
     max-width: 1100px;
     text-align: center;
-
 }
 
 .clearFloat {
@@ -264,6 +263,12 @@ img {vertical-align: middle;}
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+    margin-block-end: 1em;
 }
 
 .modal .form {

@@ -26,6 +26,8 @@ a {
     width: -moz-calc(33.333% - 20px);
     margin: 10px;
     padding: 10px;
+    text-align: center;
+
 }
 .product img {
     max-width: 300px;
@@ -48,3 +50,4 @@ a {
 .paging button:hover {
     cursor: pointer;
 }
+

@@ -88,7 +88,7 @@ if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
 }
 
 ?>
-
+    <div class="paging">
 <form action="Zoeken.php" method="GET">
     <?php //zorgt er voor dat je niet terug kan wanneer je bij de eerste bent
     if($offset != 0){
@@ -130,11 +130,12 @@ if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
 
 </form>
 </div>
+</div>
 <?php
 print($offset.$offsetSQL)
 ?>
 
-<div class="clearFloat" top="10px"></div>
+<div class="clearFloat"></div>
 <div id="footer"></div>
 <script>
     $(function(){
