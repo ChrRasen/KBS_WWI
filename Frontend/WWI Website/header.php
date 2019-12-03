@@ -26,7 +26,7 @@ if(empty($_SESSION["loggedin"])){
     print("<BODY>");
 }
 ?>
-<body>
+
 <header>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <div class="logo">

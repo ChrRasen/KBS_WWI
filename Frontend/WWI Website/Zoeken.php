@@ -128,9 +128,5 @@ if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
     <input type="submit" value=100 name="aantal">
 
 </form>
-
-<?php
-print($offset.$offsetSQL)
-?>
 </body>
 </html>
