@@ -88,14 +88,19 @@ header .menu-toggle{
 .content {
     margin: 0 auto;
     max-width: 1100px;
-    height: 100%;
     text-align: center;
 
+}
+
+.clearFloat {
+    clear: both;
+    bottom: 0px;
 }
 .row{
     display: grid;
     column-gap: 50px;
-    row-gap: 3em;
+    row-gap: 1em;
+
 
 
 }
@@ -108,7 +113,21 @@ header .menu-toggle{
 }
 .row-3{
 
+}
 
+.productHome {
+    float: left;
+    width: 33.333%;
+    width: calc(33.333% - 20px);
+    width: -webkit-calc(33.333% - 20px);
+    width: -moz-calc(33.333% - 20px);
+    margin: 10px;
+    padding: 10px;
+}
+
+.productHome img {
+    max-width: 200px;
+    max-height: 200px;
 }
 
 
@@ -121,6 +140,7 @@ img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
+    top: 10px;
     max-width: 1000px;
     position: relative;
     margin: auto;
