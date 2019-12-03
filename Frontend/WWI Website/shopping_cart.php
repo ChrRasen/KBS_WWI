@@ -1,9 +1,11 @@
 <html>
 
 <body>
+<?php include "header.php" ?>
+<div id="content">
 <?php
 include "DatabaseConnection.php";
-include "header.php";
+
 $producten = array();
 
 if(empty($_SESSION["Ses_producten"])){
@@ -54,6 +56,7 @@ echo '<button type="submit" value="submit">Toevoegen</button>
 $_SESSION["Ses_producten"] = $producten;
 ?>
 <a href="Home.php">verder met winkelen</a>
-
+    <div class="clearFloat"></div>
+<?php include "footer.php" ?>
 </body>
 </html>
