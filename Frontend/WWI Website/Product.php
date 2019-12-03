@@ -1,6 +1,6 @@
 <html>
 <?php
-session_start();
+include "header.php";
 include "DatabaseConnection.php";
 
 $StockID = $_GET["ProductID"];
@@ -82,9 +82,9 @@ if($korting != ""){
 }
 
 echo'
-    <form action="shopping_cart.php" method="get"> 
+<form action="shopping_cart.php" method="get"> 
 <button type="submit" name="erbij" value="'.$StockID.'"> toevoegen aan winkelwagen</button>
-        </form>';
+</form>';
 
 //sql voor het krijgen van alle reviews met comentaar
 $reviewComentaarQuery = mysqli_query($connection, "SELECT R.comentaar,R.score ,K.naam FROM review R join klantgegevens K ON K.email = R.email WHERE stockitemid = $StockID");

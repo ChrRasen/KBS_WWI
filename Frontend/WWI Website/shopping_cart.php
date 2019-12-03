@@ -2,9 +2,8 @@
 
 <body>
 <?php
-
-session_start();
 include "DatabaseConnection.php";
+include "header.php";
 $producten = array();
 
 if(empty($_SESSION["Ses_producten"])){
@@ -54,7 +53,7 @@ echo '<button type="submit" value="submit">Toevoegen</button>
     </form>';
 $_SESSION["Ses_producten"] = $producten;
 ?>
-<a href="Index.php">verder met winkelen</a>
+<a href="Home.php">verder met winkelen</a>
 
 </body>
 </html>
