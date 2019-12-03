@@ -71,6 +71,8 @@ $maxPages = $maxitems / $limit;
 <head></head>
 <body>
 <?php
+echo '<div id="header"></div>';
+print("<h1>U heeft gezocht op: ".$search2. "</h1>");
 if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
     print("Vul iets in!");
 }elseif(mysqli_num_rows($result) > 0) {
@@ -87,7 +89,7 @@ if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
 }
 
 ?>
-
+<div class="paging">
 <form action="Zoeken.php" method="GET">
     <?php //zorgt er voor dat je niet terug kan wanneer je bij de eerste bent
     if($offset != 0){
@@ -128,5 +130,15 @@ if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
     <input type="submit" value=100 name="aantal">
 
 </form>
+</div>
+<div class="clearFloat" top="10px"></div>
+<div id="footer"></div>
+<script>
+    $(function(){
+        $("#header").load("header.php");
+
+        $("#footer").load("footer.php");
+    });
+</script>
 </body>
 </html>
