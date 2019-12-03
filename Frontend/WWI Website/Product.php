@@ -5,12 +5,15 @@ include "DatabaseConnection.php";
 
 $StockID = $_GET["ProductID"];
 
+//sql voor het krijgen van de info van het product
 $stockItemDetails = mysqli_query($connection, "SELECT Video, UnitPrice, StockItemName, discount, photo FROM stockitems WHERE StockItemID = $StockID");
 $resultStockItemDetails = mysqli_fetch_array($stockItemDetails);
 
+//sql voor het krijgen van de hoeveelheid van het product wat nog in stock is
 $stock = mysqli_query($connection, "SELECT QuantityOnHand FROM stockitemholdings WHERE StockItemID = $StockID");
 $resultStock = mysqli_fetch_array($stock);
 
+//sql voor het krijgen van alle foto's van het product
 $searchQuery2 = "SELECT Photo FROM foto WHERE StockitemID = ?";
 
 $searchSQL2 = mysqli_prepare($connection, $searchQuery2);
@@ -18,10 +21,10 @@ mysqli_stmt_bind_param($searchSQL2, 's', $StockID);
 mysqli_stmt_execute($searchSQL2);
 $result2 = mysqli_stmt_get_result($searchSQL2);
 
+//sql voor het krijgen van de score van het product
 $reviewQuery = mysqli_query($connection, "SELECT count(*) AS aantal ,sum(score) AS totaalScore FROM review WHERE StockitemID = $StockID");
 $resultReview = mysqli_fetch_array($reviewQuery);
 
-$reviewComentaarQuery = mysqli_query($connection, "SELECT R.comentaar,R.score ,K.naam FROM review R join klantgegevens K ON K.email = R.email WHERE stockitemid = $StockID");
 
 ?>
 <body>
@@ -82,6 +85,13 @@ echo'
     <form action="shopping_cart.php" method="get"> 
 <button type="submit" name="erbij" value="'.$StockID.'"> toevoegen aan winkelwagen</button>
         </form>';
+
+//sql voor het krijgen van alle reviews met comentaar
+$reviewComentaarQuery = mysqli_query($connection, "SELECT R.comentaar,R.score ,K.naam FROM review R join klantgegevens K ON K.email = R.email WHERE stockitemid = $StockID");
+while($resultCR = mysqli_fetch_array($reviewComentaarQuery, MYSQLI_ASSOC)){
+    print($resultCR['naam']. " score "  . $resultCR['score']. "<br>");
+    print($resultCR['comentaar']. "<br><br>");
+}
 
 ?>
 </body>
