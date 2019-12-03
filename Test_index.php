@@ -57,7 +57,7 @@ session_start()
 <!-- The Modal -->
 <div id="myModal" class="modal">
     <div class="form">
-        <form  class="register-form" action="Test_index.php" method="post">
+        <form class="register-form" action="Test_index.php" method="post">
             <input type="text" name="naam" placeholder="voornaam"/>
             <input type="text" name="email" placeholder="email address"/>
             <input type="text" name="tussenvoegsel" placeholder="tussenvoegsel"><br>
@@ -112,8 +112,8 @@ session_start()
 
 <!-- Javascripts -->
 
-<script  src="javascript/js.js"></script>
-<script  src="javascript/jsPopup.js"></script>
+<script  src="Frontend/WWI Website/javascript/js.js"></script>
+<script  src="Frontend/WWI Website/javascript/jsPopup.js"></script>
 
 <script>
     $('.message a').click(function(){
