@@ -1,10 +1,11 @@
 <html>
 
 <body>
-<?php include "header.php" ?>
+<div id="header"></div>
 <div id="content">
 <?php
 include "DatabaseConnection.php";
+include "Index.php";
 
 $producten = array();
 
@@ -55,8 +56,16 @@ echo '<button type="submit" value="submit">Toevoegen</button>
     </form>';
 $_SESSION["Ses_producten"] = $producten;
 ?>
+</div>
 <a href="Home.php">verder met winkelen</a>
     <div class="clearFloat"></div>
-<?php include "footer.php" ?>
+    <div id="footer"></div>
+    <script>
+        $(function(){
+            $("#header").load("header.php");
+
+            $("#footer").load("footer.php");
+        });
+    </script>
 </body>
 </html>

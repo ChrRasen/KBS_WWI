@@ -1,6 +1,5 @@
 <html>
 <?php
-include "header.php";
 include "DatabaseConnection.php";
 
 $StockID = $_GET["ProductID"];
