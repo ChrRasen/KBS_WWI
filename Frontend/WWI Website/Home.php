@@ -7,7 +7,7 @@
 
 <div id="header"></div>
 <! -- Slideshow -->
-
+<div id="content">
 <div class="slideshow-container">
     <div class="mySlides fade">
         <div class="numbertext">1 / 3</div>
@@ -47,7 +47,7 @@
 
     <div class="clearFloat"></div>
 </div>
-
+</div>
 <div id="footer"></div>
 
 
