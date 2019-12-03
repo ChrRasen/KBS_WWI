@@ -56,7 +56,7 @@
 </header>
 
 
-
+<div class="content"></div>
 <!-- The Modal -->
 <div id="myModal" class="modal">
     <div class="form">
@@ -74,7 +74,7 @@
             <button type="submit" name="submitr">create</button>
             <p class="message">Hebt u al een account? <a href="#">Login</a></p>
         </form>
-        <form class="login-form" action="Home.php" method="post">
+        <form class="login-form" action="header.php" method="post">
             <input type="text" name="emailadres" placeholder="email"/>
             <input type="password" name="wachtwoord" placeholder="wachtwoord"/>
             <button type="submit" name="submitl">login</button>
