@@ -1,6 +1,5 @@
 <?php
-include "DatabaseConnection.php";
-include "index.php";
+
 
 
 //zorgt er voor dat de juiste aantal producten laat zien
