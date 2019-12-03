@@ -1,7 +1,30 @@
 <html>
+<script>
+    <!--
+
+    function autoChange()
+    {var timeID = setTimeout("location.href= './Home.php'", 3000)}
+
+    (function()
+    {if( window.localStorage )
+    {if( !localStorage.getItem('firstLoad') )
+    {localStorage['firstLoad'] = true;
+        window.location.reload();
+    }else localStorage.removeItem('firstLoad');}})();
+    //-->
+</script>
 <head>
     <?php include "./Index.php" ?>
 </head>
+<?php
+if(empty($_SESSION["loggedin"])){
+    print("");
+}elseif($_SESSION["loggedin"] == true){
+    print("<BODY onLoad=\"autoChange()\">");
+}else{
+    print("<BODY>");
+}
+?>
 <body>
 <header>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -74,7 +97,7 @@
             <button type="submit" name="submitr">create</button>
             <p class="message">Hebt u al een account? <a href="#">Login</a></p>
         </form>
-        <form class="login-form" action="Home.php" method="post">
+        <form class="login-form" action="header.php" method="post">
             <input type="text" name="emailadres" placeholder="email"/>
             <input type="password" name="wachtwoord" placeholder="wachtwoord"/>
             <button type="submit" name="submitl">login</button>
