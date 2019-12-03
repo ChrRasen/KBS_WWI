@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ececaa1e-921b-41c9-b79d-33022713c6ea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/style/Stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/style/Stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zoeken.php" beforeDir="false" afterPath="$PROJECT_DIR$/Zoeken.php" afterDir="false" />
+    <list default="true" id="d920e61d-b2a2-4a5f-883d-6b8f6e641944" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,26 +19,26 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1TblaQhupZImQJIVe3PDfSLQYMC" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <OptionsSetting value="false" id="Update" />
-  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP FROM XAMPP" />
+  <component name="ProjectId" id="1TpWKEUkIbouvxoJwwcCo1YaVg4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/Software/xampp/htdocs" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Software\xampp\htdocs\KBS_WWI\Frontend\WWI Website" />
+      <recent name="D:\Software\xampp\htdocs\Frontend\scratch\style" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -57,12 +54,12 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Index.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost/KBS_WWI/Index.php">
+    <configuration name="Index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Frontend/WWI Website/Index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.Index.php" />
+        <item itemvalue="JavaScript Debug.Index.html" />
       </list>
     </recent_temporary>
   </component>
@@ -71,16 +68,20 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ececaa1e-921b-41c9-b79d-33022713c6ea" name="Default Changelist" comment="" />
-      <created>1573736738902</created>
+      <changelist id="d920e61d-b2a2-4a5f-883d-6b8f6e641944" name="Default Changelist" comment="" />
+      <created>1574157451421</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1573736738902</updated>
-      <workItem from="1573736741667" duration="1135000" />
-      <workItem from="1574866200326" duration="3774000" />
-      <workItem from="1575027798789" duration="2521000" />
-      <workItem from="1575280832934" duration="9210000" />
-      <workItem from="1575292862256" duration="1780000" />
+      <updated>1574157451421</updated>
+      <workItem from="1574157452814" duration="1475000" />
+      <workItem from="1574159060601" duration="3761000" />
+      <workItem from="1574163378261" duration="80000" />
+      <workItem from="1574163462561" duration="8707000" />
+      <workItem from="1574333748379" duration="4747000" />
+      <workItem from="1574415963601" duration="8019000" />
+      <workItem from="1574764274744" duration="15818000" />
+      <workItem from="1574849956563" duration="10480000" />
+      <workItem from="1574957286940" duration="134000" />
     </task>
     <servers />
   </component>
@@ -92,9 +93,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>

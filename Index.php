@@ -47,8 +47,6 @@ include "databaseConnection.php"
         echo '<input type="submit" value="'.$stock.'" name="CAT">';
     }
     ?>
-
-
 </form>
 
 </body>

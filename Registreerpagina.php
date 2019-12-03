@@ -37,10 +37,10 @@ mysqli_stmt_execute($searchQuery);
 $result = mysqli_stmt_get_result($searchQuery);
 
     //kijkt of de website één maal is gesubmit en haalt dan de waardes op zo niet geeft hij niks weer.
-if (mysqli_num_rows($result)){
+if (mysqli_num_rows($result) > 0 ){
     print("Email address al in gebruik");
     die;
-    //als het email address al in de database staat word deze error gegevens en stopt het script.
+        //als het email address al in de database staat word deze error gegevens en stopt het script.
 }elseif($_POST['naam'] == "" OR $_POST['achternaam'] == "" OR $_POST['email'] == "" OR $_POST['wachtwoord'] == "" OR $_POST['postcode'] == "" OR $_POST['straatnaam'] == "" OR $_POST['huisnummer'] == "" OR $_POST['straatnaam'] == ""){
     print("Naam, Achternaam, Email, Wachtwoord, Postcode, Straatnaam, Huisnummer en Woonplaats zijn allemaal verplicht");
     die;
@@ -77,7 +77,7 @@ $huisnummer = $_POST['huisnummer'];
 $woonplaatst = $_POST['woonplaats'];
 
 //Geeft een hash aan een ingevuld wachtwoord gebruikt SHA512(code)
-$hashed = hash('sha512', $wachtwoord);
+$hashed = hash('sha512',$wachtwoord);
 
 /* voert de prepared statement uit */
 mysqli_stmt_execute($stmt);

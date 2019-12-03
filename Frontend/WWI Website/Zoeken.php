@@ -1,7 +1,6 @@
 <?php
+include "DatabaseConnection.php";
 include "Index.php";
-include "databaseConnection.php";
-
 
 
 //zorgt er voor dat de juiste aantal producten laat zien
@@ -82,7 +81,7 @@ if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
         $StockItemPrice = $row['UnitPrice'];
         $StockPhoto2 = $row['Photo'];
         $Picture = "<img src=\"$StockPhoto2\" />";
-        Print('<div class="product"><a href="http://localhost/KBS/KBS_WWI/Product.php?ProductID=' . $StockItemID . '">' . $Picture ."<p>" . $StockItemName . "</p><p class='price'> " . $StockItemPrice . "</p>".'</a></div>');
+        Print('<div class="product"><a href="http://localhost/KBS_WWI/Product.php?ProductID=' . $StockItemID . '">' . $Picture ."<p>" . $StockItemName . "</p><p class='price'> " . $StockItemPrice . "</p>".'</a></div>');
     }
 }else {
     print("Geen resultaten");

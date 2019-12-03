@@ -1,0 +1,336 @@
+html, body {
+    font-family: 'PT Sans', sans-serif;
+    margin: 0px;
+    font-weight: normal;
+    font-size: 16px;
+    height: 100%;
+}
+form {
+    display: block;
+    margin-top: 0em;
+    margin-block-end: 0em;
+}
+/* Add a black background color to the top navigation */
+.header {
+    position: relative;
+    float: left;
+    width: 100%;
+    background-color: #62b4cf;
+    z-index: 99;
+}
+
+/* Style the links inside the navigation bar */
+.header a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav {
+    display: inline-block;
+    padding: 33px 10px;
+    float: right;
+}
+nav ul {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+}
+nav ul a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+nav ul li {
+    position: relative;
+    display: inline-block;
+    list-style-type: none;
+    text-align: center;
+    float: left;
+}
+nav ul li a:hover {
+    background-color: #357F7F;
+}
+nav ul li:hover a {
+    color: white;
+}
+nav ul ul{
+    display: none;
+    position: absolute;
+    background: rgba(0,0,0,0.4);
+    width: 100%;
+    top: 48px;
+}
+nav ul ul li {
+    width: 100%;
+    display: inline-block;
+}
+nav ul ul li a {
+    box-sizing: border-box;
+    width: 100%;
+}
+nav ul li:hover > ul {
+    display: block;
+}
+
+.content {
+    margin: 0 auto;
+    max-width: 1100px;
+    height: 100%;
+}
+
+/* SLIDESHOW */
+
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* The dots/bullets/indicators */
+/*.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+} */
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+}
+
+/* FOOTER */
+.footer {
+    background: #62b4cf;
+    color: white;
+    height: 250px;
+    position: relative;
+}
+
+.footer .footer-content{
+    border: 1px solid red;
+    height: 150px;
+    display: flex;
+}
+
+.footer .footer-content .footer-section{
+    flex: 1;
+    padding: 10px;
+    border: 1px solid white;
+    text-align: center;
+}
+
+.footer .footer-content .footer-section a{
+    color: white;
+}
+
+.footer .footer-bottom {
+    background: #62b4cf;
+    color: black;
+    opacity: 50%;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding-top: 20px;
+}
+
+.search {
+    float: left;
+    text-align: center;
+
+}
+
+/* Dropdown menu */
+/*the container must be positioned relative:*/
+.custom-select {
+    float: left;
+    position: relative;
+    margin-top: 8px;
+}
+
+.custom-select select {
+    display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+    background-color: #d3d3d3;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+    color: #000000;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+    position: absolute;
+    background-color: #d3d3d3;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*search bar */
+
+.search .search-container {
+    float: right;
+}
+
+.search input[type=text] {
+    padding: 8px;
+    margin-top: 8px;
+    border: none;
+    font-size: 18px;
+}
+
+.search .search-container button {
+    float: right;
+    padding: 9.5px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.search .search-container button:hover {
+    background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+    .search .search-container {
+        float: none;
+    }
+    .search input[type=text], .search .search-container button {
+        float: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+        margin: 0;
+        padding: 14px;
+    }
+    .search input[type=text] {
+        border: 1px solid #ccc;
+    }
+}
