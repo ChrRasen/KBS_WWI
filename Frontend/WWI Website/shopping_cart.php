@@ -3,7 +3,7 @@
 <body>
 <?php
 include "DatabaseConnection.php";
-include "header.php";
+include "Index.php";
 $producten = array();
 
 if(empty($_SESSION["Ses_producten"])){

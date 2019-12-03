@@ -1,6 +1,7 @@
 <?php
-include "DatabaseConnection.php";
-include "header.php";
+include "Index.php";
+
+
 //zorgt er voor dat de juiste aantal producten laat zien
 if(isset($_GET["offset"])){
     $offset = $_GET["offset"];

@@ -4,13 +4,13 @@
 
     function autoChange()
     {var timeID = setTimeout("location.href= './Home.php'", 3000)}
-
     (function()
     {if( window.localStorage )
     {if( !localStorage.getItem('firstLoad') )
     {localStorage['firstLoad'] = true;
         window.location.reload();
     }else localStorage.removeItem('firstLoad');}})();
+
     //-->
 </script>
 <head>
