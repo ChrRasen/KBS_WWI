@@ -39,9 +39,17 @@ if(empty($_SESSION["loggedin"])){
         <li><a title="Winkelwagen" href="http://localhost/KBS_WWI/Frontend/WWI%20Website/shopping_cart.php"><i class="fas fa-shopping-cart"></i>
                 Winkelwagen
             </a></li>
-        <li><a title="Inloggen" id=myBtn><i class="fas fa-user"></i>
+        <?php
+        if(empty($_SESSION["loggedin"])){
+            print("<li><a title=\"Inloggen\" id=myBtn><i class=\"fas fa-user\"></i>
                 Inloggen
-            </a></li>
+            </a></li>");
+        }else{
+            print("<li><a title=\"Uitloggen\" id='myBtn2'><i class=\"fas fa-user\"></i>
+                Uitloggen
+            </a></li>");
+        }
+        ?>
     </ul>
 
 

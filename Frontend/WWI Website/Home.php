@@ -24,7 +24,7 @@
     <div class="mySlides fade">
         <div class="numbertext">3 / 3</div>
         <img src="images/Slideshow/3.jpg"  style="width:100%">
-        <div class="text">Vandaag besteld morgen in huis!</div>
+        <div class="text">Vandaag voor 17:00 besteld morgen in huis!</div>
     </div>
 
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>

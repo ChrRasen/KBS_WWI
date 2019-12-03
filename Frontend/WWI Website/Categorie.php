@@ -1,5 +1,5 @@
 <?php
-include "Index.php";
+include "Header.php";
 
 
 //zorgt er voor dat de juiste waardes er zijn
