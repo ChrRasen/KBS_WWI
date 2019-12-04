@@ -48,3 +48,9 @@ a {
 .paging button:hover {
     cursor: pointer;
 }
+.productImage {
+    float: left;
+    max-width: 50%;
+    height: auto;
+    padding: 10px;
+}
