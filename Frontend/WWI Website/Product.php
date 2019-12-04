@@ -3,6 +3,7 @@
 include "DatabaseConnection.php";
 include "Index.php";
 
+
 $StockID = $_GET["ProductID"];
 
 //sql voor het krijgen van de info van het product
@@ -31,6 +32,7 @@ $resultReview = mysqli_fetch_array($reviewQuery);
 <div id="header"></div>
 <div id="content">
 <?php
+print("<br>");
 $korting = floatval($resultStockItemDetails['discount'] / 100);
 $prijs = floatval($resultStockItemDetails['UnitPrice']);
 $prijsMetKorting = $prijs * (1 - $korting);
@@ -73,7 +75,7 @@ if($korting != ""){
         }
     }
 }else{
-    print("price per unit: €   " . $prijs . "<br>");
+    print("price per unit: €   " .preg_replace('/\./', ',', $prijs). "<br>");
     echo' <font size = "4" color="Blue">   verzend kosten: €2,50</font>   <br>';
     print("Quantity on hand:  " . $quantity . '<br>');
     if(mysqli_num_rows($result2) > 0) {
