@@ -74,10 +74,11 @@ $result = mysqli_stmt_get_result($statement);
 
 </head>
 <body>
-
+<div id="header"></div>
+<div id="content">
 
 <?php
-echo '<div id="header"></div>';
+
 print("<h1>".$categorieNaam. "</h1>");
 
 while ($row = mysqli_fetch_array($resultmax, MYSQLI_ASSOC)) {
@@ -135,6 +136,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         <button type="submit" value=50 name="aantal">50</button>
         <button type="submit" value=100 name="aantal">100</button>
     </form>
+</div>
 </div>
 <div class="clearFloat" top="10px"></div>
 <div id="footer"></div>

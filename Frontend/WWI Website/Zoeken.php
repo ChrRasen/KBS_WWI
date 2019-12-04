@@ -1,7 +1,6 @@
 <?php
-include "Index.php";
 
-
+include "index.php";
 //zorgt er voor dat de juiste aantal producten laat zien
 if(isset($_GET["offset"])){
     $offset = $_GET["offset"];
@@ -70,6 +69,8 @@ $maxPages = $maxitems / $limit;
 <html>
 <head></head>
 <body>
+<div id="header"></div>
+<div id="content">
 <?php
 echo '<div id="header"></div>';
 print("<h1>U heeft gezocht op: ".$search2. "</h1>");
@@ -89,7 +90,11 @@ if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
 }
 
 ?>
+
 <div class="paging">
+
+    <div class="paging">
+
 <form action="Zoeken.php" method="GET">
     <?php //zorgt er voor dat je niet terug kan wanneer je bij de eerste bent
     if($offset != 0){
@@ -125,13 +130,22 @@ if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
         echo '<input type="submit" value="volgende" disabled>';
     }
     ?>
-    <input type="submit" value=25 name="aantal">
-    <input type="submit" value=50 name="aantal">
-    <input type="submit" value=100 name="aantal">
+    <button type="submit" value=25 name="aantal">25</button>
+    <button type="submit" value=50 name="aantal">50</button>
+    <button type="submit" value=100 name="aantal">100</button>
 
 </form>
 </div>
+
 <div class="clearFloat" top="10px"></div>
+
+</div>
+<?php
+print($offset.$offsetSQL)
+?>
+
+<div class="clearFloat"></div>
+
 <div id="footer"></div>
 <script>
     $(function(){

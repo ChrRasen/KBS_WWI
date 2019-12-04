@@ -24,6 +24,9 @@ $resultReview = mysqli_fetch_array($reviewQuery);
 $reviewComentaarQuery = mysqli_query($connection, "SELECT R.comentaar,R.score ,K.naam FROM review R join klantgegevens K ON K.email = R.email WHERE stockitemid = $StockID");
 
 ?>
+<head>
+    <link rel="stylesheet" type="text/css" media="all" href="style/stylesheet.css">
+</head>
 <body>
     <?php
     $korting = floatval($resultStockItemDetails['discount'] / 100);
@@ -47,35 +50,34 @@ $reviewComentaarQuery = mysqli_query($connection, "SELECT R.comentaar,R.score ,K
     }
     //print($gemScore);
 
-    print($resultStockItemDetails["StockItemName"] . '<br>');
+    print("<h1>" . $resultStockItemDetails["StockItemName"] . "</h1>" );
     print("Gemidelde score : " . $gemScore . "<br>");
     if($video != "") {
         echo '<iframe width="600" height="400"
            src="' . $video . '">
-           </iframe>
-            <br>';
+           </iframe>';
     }
     if($korting != ""){
-        print("price per unit: €   " . $prijsMetKorting . "<br>");
-        print($korting * 100 . '% korting <br>');
-        echo' <font size = "4" color="Blue">   verzend kosten: €2,50</font>   <br>';
-        print("Quantity on hand:  " . $quantity . '<br>');
         if(mysqli_num_rows($result2) > 0) {
             while ($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) {
                 $StockPhoto2 = $row["Photo"];
-                print("<img src=\"$StockPhoto2\" style=\"width: 150px\"><br>");
+                print("<img class='productImage' src=\"$StockPhoto2\" ");
             }
         }
-    }else{
-    print("price per unit: €   " . $prijs . "<br>");
-    echo' <font size = "4" color="Blue">   verzend kosten: €2,50</font>   <br>';
-    print("Quantity on hand:  " . $quantity . '<br>');
+        print("<p>price per unit: €   " . $prijsMetKorting . "</p>" );
+        print("<p>" . $korting * 100 . " % korting </p>");
+        echo' <p>Verzend kosten: €2,50</p>';
+        print("<p>Quantity on hand:  " . $quantity . "</p>" );
+    } else {
         if(mysqli_num_rows($result2) > 0) {
             while ($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) {
                 $StockPhoto2 = $row["Photo"];
-                print("<img src=\"$StockPhoto2\" style=\"width: 150px\"><br>");
+                print("<img class='productImage' src=\"$StockPhoto2\"");
             }
         }
+        print("<div class='productDescription'><p>Price per unit: €   " . $prijs. "</p>" );
+        echo' <p>Verzend kosten: €2,50</p>';
+        print("<p>Quantity on hand:  " . $quantity. "</p></div>" );
     }
 
     echo'

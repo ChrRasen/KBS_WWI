@@ -1,13 +1,16 @@
 <html>
 
 <body>
+<div id="header"></div>
+<div id="content">
 <?php
 include "DatabaseConnection.php";
 include "Index.php";
-$producten = array();
 
+$producten = array();
+$geldopslag = array();
 if(empty($_SESSION["Ses_producten"])){
-    print('winkelwagen is nog leeg');
+    print('');
 }elseif (!($_SESSION["Ses_producten"] === null)){
     $producten = $_SESSION["Ses_producten"];
 }
@@ -23,7 +26,11 @@ foreach ($producten as $index => $waarde) {
         $producten[$index] = $quant;
     }
 }
-
+foreach($producten as $index => $waarde){
+if($waarde == null){
+    unset($producten[$index]);
+}
+}
 
 echo '<form action="shopping_cart.php" method="get">'; // Create form
 foreach($producten as $index => $waarde) {
@@ -32,7 +39,9 @@ foreach($producten as $index => $waarde) {
         printf("Error: %s\n", mysqli_error($connection));
         exit();
     }
-
+  //  if($waarde == null){
+   //     unset($producten[$index]);
+   // }
     $resultStockItemName = mysqli_fetch_array($sqlquery, MYSQLI_BOTH);
     $naam = $resultStockItemName["StockItemName"];
 
@@ -42,18 +51,49 @@ foreach($producten as $index => $waarde) {
     $PrijsPerStuk = $resultUnitPrice["UnitPrice"];
 
     echo  $naam .
-        '<input type="number" min="1" value="'.$waarde.'"  name="' . $index . '" class="calculator-input" 
+        '<input type="number" min="1" value="'.$waarde.'"  name="' . $index . '" class="calculator-input"
             onkeypress="return event.charCode >= 48 && event.charCode <= 57"></div>' ;
-    $PrijsPerProduct = ($PrijsPerStuk * $waarde);
-    echo(" " . $PrijsPerProduct);
-    echo'<br>';
+    if(!($waarde == null)) {
+        $PrijsPerProduct = ($PrijsPerStuk * $waarde);
 
+        echo($waarde . " totaal: " . $PrijsPerProduct . "€");
+
+
+        $geldopslag[$index] = $PrijsPerProduct;
+    }
+    echo '<br>';
 }
-echo '<button type="submit" value="submit">Toevoegen</button> 
+
+$totaalbedrag = array_sum($geldopslag);
+if($totaalbedrag > 0) {
+    if ($totaalbedrag <= 40) {
+        $totaalbedrag = $totaalbedrag + 6.95;
+    }
+}
+if($totaalbedrag == 0) {
+    print('uw winkelwagen is leeg' . '<br>');
+}
+print("uw totaal bedrag is: " . $totaalbedrag);
+
+echo '<button type="submit" value="submit">aanpassen</button>
     </form>';
 $_SESSION["Ses_producten"] = $producten;
-?>
-<a href="Home.php">verder met winkelen</a>
+echo '
 
+    <form action="betaalpagina.php" method="get">
+<button type="submit" name="afrekenen" value="' .$totaalbedrag.'"> afrekenen</button>
+        </form>';
+?>
+</div>
+<a href="Home.php">verder met winkelen</a>
+    <div class="clearFloat"></div>
+    <div id="footer"></div>
+    <script>
+        $(function(){
+            $("#header").load("header.php");
+
+            $("#footer").load("footer.php");
+        });
+    </script>
 </body>
 </html>
