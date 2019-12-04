@@ -55,7 +55,7 @@ foreach($producten as $index => $waarde) {
     if(!($waarde == null)) {
         $PrijsPerProduct = ($PrijsPerStuk * $waarde);
 
-        echo($waarde . " totaal: " . $PrijsPerProduct . "€");
+        echo($waarde . " totaal: " .  "€" . preg_replace('/\./', ',', $PrijsPerProduct ));
 
 
         $geldopslag[$index] = $PrijsPerProduct;
@@ -72,19 +72,25 @@ if($totaalbedrag > 0) {
 if($totaalbedrag == 0) {
     print('uw winkelwagen is leeg' . '<br>');
 }
-print("Verzendkosten: 6,95" . "<br>");
-print("uw totaal bedrag is: " . $totaalbedrag);
+print("Verzendkosten: € 6,95" . "<br>");
+print("uw totaal bedrag is: € " .  preg_replace('/\./', ',', $totaalbedrag ));
 ?>
 
     </div>
 
     <div>
                         <h3>Betaalmethode</h3>
-                        <input type="radio" value="ideal">Ideal<br>
-                        <input type="radio" value="paypal">Paypal<br>
-                        <input type="radio" value="Maestro">Maestro<br>
+                        <input type="radio" name="redirect" value="http://www.ideal.nl">Ideal<br>
+                        <input type="radio" name="redirect" value="http://www.paypal.nl">Paypal<br>
+                        <input type="radio" name="redirect" value="http://www.mastercard.nl">Maestro<br>
 
-                <input type="submit" value="doorgaan met betaling"><br>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script>
+            $('input[type="radio"]').on('click', function() {
+                window.location = $(this).val();
+            });
+        </script>
+
             </form>
         </div>
     </div>
