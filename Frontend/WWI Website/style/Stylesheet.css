@@ -88,8 +88,47 @@ header .menu-toggle{
 .content {
     margin: 0 auto;
     max-width: 1100px;
-    height: 100%;
+    text-align: center;
 }
+
+.clearFloat {
+    clear: both;
+    bottom: 0px;
+}
+.row{
+    display: grid;
+    column-gap: 50px;
+    row-gap: 1em;
+
+
+
+}
+.row-1{
+
+
+}
+.row-2{
+
+}
+.row-3{
+
+}
+
+.productHome {
+    float: left;
+    width: 33.333%;
+    width: calc(33.333% - 20px);
+    width: -webkit-calc(33.333% - 20px);
+    width: -moz-calc(33.333% - 20px);
+    margin: 10px;
+    padding: 10px;
+}
+
+.productHome img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
 
 /* SLIDESHOW */
 
@@ -100,6 +139,7 @@ img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
+    top: 10px;
     max-width: 1000px;
     position: relative;
     margin: auto;
@@ -223,6 +263,12 @@ img {vertical-align: middle;}
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+    margin-block-end: 1em;
 }
 
 .modal .form {
@@ -363,67 +409,53 @@ img {vertical-align: middle;}
 }
 
 /* Dropdown menu */
-/*the container must be positioned relative:*/
-.custom-select {
-    float: left;
+.dropdown {
     position: relative;
+    display: inline-block;
+}
+
+.dropdown .dropbtn {
+    padding: 8px;
+    color: black;
     margin-top: 8px;
-}
-
-.custom-select select {
-    display: none; /*hide original SELECT element:*/
-}
-
-.select-selected {
-    background-color: #d3d3d3;
-}
-
-/*style the arrow inside the select element:*/
-.select-selected:after {
-    position: absolute;
-    content: "";
-    top: 14px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-    border-color: #fff transparent transparent transparent;
-}
-
-/*point the arrow upwards when the select box is open (active):*/
-.select-selected.select-arrow-active:after {
-    border-color: transparent transparent #fff transparent;
-    top: 7px;
-}
-
-/*style the items (options), including the selected item:*/
-.select-items div,.select-selected {
-    color: #000000;
-    padding: 8px 16px;
-    border: 1px solid transparent;
-    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    border: none;
+    font-size: 18px;
     cursor: pointer;
-    user-select: none;
 }
 
-/*style items (options):*/
-.select-items {
-    position: absolute;
-    background-color: #d3d3d3;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 99;
-}
-
-/*hide the items when the select box is closed:*/
-.select-hide {
+.dropdown-content {
     display: none;
+    position: absolute;
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
 }
 
-.select-items div:hover, .same-as-selected {
-    background-color: rgba(0, 0, 0, 0.1);
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
 }
+
+.topnav a:hover, .dropdown:hover .dropbtn {
+    background-color: #555;
+    color: white;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 
 /*search bar */
 
@@ -432,6 +464,7 @@ img {vertical-align: middle;}
 }
 
 .search input[type=text] {
+    color: black;
     padding: 8px;
     margin-top: 8px;
     border: none;

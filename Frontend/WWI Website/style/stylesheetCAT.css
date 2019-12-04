@@ -26,10 +26,12 @@ a {
     width: -moz-calc(33.333% - 20px);
     margin: 10px;
     padding: 10px;
+    text-align: center;
+
 }
 .product img {
-    width: 100%;
-    height: auto;
+    max-width: 300px;
+    max-height: 300px;
 }
 .product .price {
     color: #eb0400;

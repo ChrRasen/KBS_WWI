@@ -1,59 +1,94 @@
-<?php
-session_start()
-?>
 <html>
+<script>
+    <!--
+
+    function autoChange()
+    {var timeID = setTimeout("location.href= './Home.php'", 3000)}
+
+    // (function()
+    // {if( window.localStorage )
+    // {if( !localStorage.getItem('firstLoad') )
+    // {localStorage['firstLoad'] = true;
+    //     window.location.reload();
+    // }else localStorage.removeItem('firstLoad');}})();
+
+    //-->
+</script>
 <head>
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="all" href="style\Stylesheet.css">
+    <?php include "./Index.php" ?>
 </head>
+<?php
+if(empty($_SESSION["loggedin"])){
+    print("");
+}elseif($_SESSION["loggedin"] == true){
+    print("<BODY onLoad=\"autoChange()\">");
+}else{
+    print("<BODY>");
+}
+?>
 <body>
 <header>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <div class="logo">
-        <a class="active" href="#home"><img src="images/logo's/logoWWI.png" alt="WWI"></a>
+        <a class="active" href="http://localhost/KBS_WWI/Frontend/WWI%20Website/Home.php"><img src="images/logo's/logoWWI.png" alt="WWI"></a>
     </div>
     <i class="fa fa-bars menu-toggle"></i>
     <ul class="nav">
         <li><a title="Wishlist" href="#"><i class="fas fa-heart"></i>
                 Verlanglijst
             </a></li>
-        <li><a title="Winkelwagen" href="#"><i class="fas fa-shopping-cart"></i>
+        <li><a title="Winkelwagen" href="http://localhost/KBS_WWI/Frontend/WWI%20Website/shopping_cart.php"><i class="fas fa-shopping-cart"></i>
                 Winkelwagen
             </a></li>
-        <li><a title="Inloggen" id=myBtn><i class="fas fa-user"></i>
+        <?php
+        if(empty($_SESSION["loggedin"])){
+            print("<li><a title=\"Inloggen\" id=myBtn><i class=\"fas fa-user\"></i>
                 Inloggen
-            </a></li>
+            </a></li>");
+        }else{
+            print("<li><a title=\"Uitloggen\" id='myBtn2'><i class=\"fas fa-user\"></i>
+                Uitloggen
+            </a></li>");
+        }
+        ?>
     </ul>
 
 
     <nav class="search">
         <ul>
             <li>
-                <div class="custom-select" style="width:200px;">
-                    <select>
-                        <option value="0">Select car:</option>
-                        <option value="1">Audi</option>
-                        <option value="2">BMW</option>
-                    </select>
+                <div class="dropdown">
+                    <button class="dropbtn">Categorieën
+                    </button>
+                    <div class="dropdown-content">
+                        <?php
+                        $i=0;
+                        $stockGroupName = mysqli_query($connection, "SELECT StockGroupName FROM stockgroups");
+                        while($row = mysqli_fetch_array($stockGroupName, MYSQLI_ASSOC))
+                        {
+                            $cat = $row['StockGroupName'];
+                            $cat = str_replace(' ', '+', $cat);
+                            echo '<a href="http://localhost/KBS_WWI/Frontend/WWI Website/Categorie.php?CAT='.$cat.'">'.$row['StockGroupName'].'</a>';
+
+                        }
+                        ?>
+                    </div>
                 </div>
             </li>
             <li>
                 <div class="search-container">
-                    <form action="/action_page.php">
-                        <input type="text" placeholder="Search.." name="search">
+                    <form action="Zoeken.php">
+                        <input type="text" placeholder="Zoeken.." name="zoeken">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
             </li>
         </ul>
-
+    </nav>
 </header>
 
 
-<div class="content"></div>
+
 <!-- The Modal -->
 <div id="myModal" class="modal">
     <div class="form">
