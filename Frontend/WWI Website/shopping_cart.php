@@ -58,7 +58,7 @@ foreach($producten as $index => $waarde) {
     if(!($waarde == null)) {
         $PrijsPerProduct = ($PrijsPerStuk * $waarde);
 
-        echo($waarde . " totaal: " . $PrijsPerProduct . "€");
+        echo($waarde . " totaal: " ."€". preg_replace('/\./', ',', $PrijsPerProduct ));
 
 
         $geldopslag[$index] = $PrijsPerProduct;
@@ -75,7 +75,7 @@ if($totaalbedrag > 0) {
 if($totaalbedrag == 0) {
     print('uw winkelwagen is leeg' . '<br>');
 }
-print("uw totaal bedrag is: " . $totaalbedrag);
+print("uw totaal bedrag is: " ."€". preg_replace('/\./', ',', $totaalbedrag));
 
 echo '<button type="submit" value="submit">aanpassen</button>
     </form>';

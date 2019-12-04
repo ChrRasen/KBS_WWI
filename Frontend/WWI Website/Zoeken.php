@@ -83,7 +83,7 @@ if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
         $StockItemPrice = $row['UnitPrice'];
         $StockPhoto2 = $row['Photo'];
         $Picture = "<img src=\"$StockPhoto2\" />";
-        Print('<div class="product"><a href="http://localhost/KBS_WWI/Frontend/WWI Website/Product.php?ProductID=' . $StockItemID . '">' . $Picture ."<p>" . $StockItemName . "</p><p class='price'> " . $StockItemPrice . "</p>".'</a></div>');
+        Print('<div class="product"><a href="http://localhost/KBS_WWI/Frontend/WWI Website/Product.php?ProductID=' . $StockItemID . '">' . $Picture ."<p>" . $StockItemName . "</p><p class='price'> "."€". preg_replace('/\./', ',', $StockItemPrice) . "</p>".'</a></div>');
     }
 }else {
     print("Geen resultaten");
