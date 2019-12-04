@@ -1,7 +1,31 @@
 <html>
+<script>
+    <!--
+
+    function autoChange()
+    {var timeID = setTimeout("location.href= './Home.php'", 3000)}
+
+    // (function()
+    // {if( window.localStorage )
+    // {if( !localStorage.getItem('firstLoad') )
+    // {localStorage['firstLoad'] = true;
+    //     window.location.reload();
+    // }else localStorage.removeItem('firstLoad');}})();
+
+    //-->
+</script>
 <head>
     <?php include "./Index.php" ?>
 </head>
+<?php
+if(empty($_SESSION["loggedin"])){
+    print("");
+}elseif($_SESSION["loggedin"] == true){
+    print("<BODY onLoad=\"autoChange()\">");
+}else{
+    print("<BODY>");
+}
+?>
 <body>
 <header>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -16,9 +40,17 @@
         <li><a title="Winkelwagen" href="http://localhost/KBS_WWI/Frontend/WWI%20Website/shopping_cart.php"><i class="fas fa-shopping-cart"></i>
                 Winkelwagen
             </a></li>
-        <li><a title="Inloggen" id=myBtn><i class="fas fa-user"></i>
+        <?php
+        if(empty($_SESSION["loggedin"])){
+            print("<li><a title=\"Inloggen\" id=myBtn><i class=\"fas fa-user\"></i>
                 Inloggen
-            </a></li>
+            </a></li>");
+        }else{
+            print("<li><a title=\"Uitloggen\" id='myBtn2'><i class=\"fas fa-user\"></i>
+                Uitloggen
+            </a></li>");
+        }
+        ?>
     </ul>
 
 
@@ -56,7 +88,7 @@
 </header>
 
 
-<div class="content"></div>
+
 <!-- The Modal -->
 <div id="myModal" class="modal">
     <div class="form">

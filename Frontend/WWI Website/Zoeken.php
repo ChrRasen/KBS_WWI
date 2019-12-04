@@ -1,8 +1,6 @@
 <?php
-include "DatabaseConnection.php";
-include "Index.php";
 
-
+include "index.php";
 //zorgt er voor dat de juiste aantal producten laat zien
 if(isset($_GET["offset"])){
     $offset = $_GET["offset"];
@@ -71,6 +69,8 @@ $maxPages = $maxitems / $limit;
 <html>
 <head></head>
 <body>
+<div id="header"></div>
+<div id="content">
 <?php
 if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
     print("Vul iets in!");
@@ -81,14 +81,14 @@ if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
         $StockItemPrice = $row['UnitPrice'];
         $StockPhoto2 = $row['Photo'];
         $Picture = "<img src=\"$StockPhoto2\" />";
-        Print('<div class="product"><a href="http://localhost/KBS_WWI/Product.php?ProductID=' . $StockItemID . '">' . $Picture ."<p>" . $StockItemName . "</p><p class='price'> " . $StockItemPrice . "</p>".'</a></div>');
+        Print('<div class="product"><a href="http://localhost/KBS_WWI/Frontend/WWI Website/Product.php?ProductID=' . $StockItemID . '">' . $Picture ."<p>" . $StockItemName . "</p><p class='price'> " . $StockItemPrice . "</p>".'</a></div>');
     }
 }else {
     print("Geen resultaten");
 }
 
 ?>
-
+    <div class="paging">
 <form action="Zoeken.php" method="GET">
     <?php //zorgt er voor dat je niet terug kan wanneer je bij de eerste bent
     if($offset != 0){
@@ -124,14 +124,25 @@ if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
         echo '<input type="submit" value="volgende" disabled>';
     }
     ?>
-    <input type="submit" value=25 name="aantal">
-    <input type="submit" value=50 name="aantal">
-    <input type="submit" value=100 name="aantal">
+    <button type="submit" value=25 name="aantal">25</button>
+    <button type="submit" value=50 name="aantal">50</button>
+    <button type="submit" value=100 name="aantal">100</button>
 
 </form>
-
+</div>
+</div>
 <?php
 print($offset.$offsetSQL)
 ?>
+
+<div class="clearFloat"></div>
+<div id="footer"></div>
+<script>
+    $(function(){
+        $("#header").load("header.php");
+
+        $("#footer").load("footer.php");
+    });
+</script>
 </body>
 </html>

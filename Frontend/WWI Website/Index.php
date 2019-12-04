@@ -32,11 +32,7 @@
 <script  src="javascript/js.js"></script>
 <script  src="javascript/jsPopup.js"></script>
 
-<script>
-    $('.message a').click(function(){
-        $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-    });
-</script>
+
 <script>
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {

@@ -71,10 +71,12 @@ $result = mysqli_stmt_get_result($statement);
 ?>
 <html>
 <head>
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="all" href="style/stylesheet.css">
+
 </head>
 <body>
+<div id="header"></div>
+<div id="content">
+
 <?php
 
 print("<h1>".$categorieNaam. "</h1>");
@@ -135,6 +137,16 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         <button type="submit" value=100 name="aantal">100</button>
     </form>
 </div>
+</div>
+<div class="clearFloat" top="10px"></div>
+<div id="footer"></div>
+<script>
+    $(function(){
+        $("#header").load("header.php");
+
+        $("#footer").load("footer.php");
+    });
+</script>
 </body>
 </html>
 
