@@ -80,11 +80,13 @@ print("uw totaal bedrag is: " ."€". preg_replace('/\./', ',', $totaalbedrag));
 echo '<button type="submit" value="submit">aanpassen</button>
     </form>';
 $_SESSION["Ses_producten"] = $producten;
+if(empty($_SESSION['loggedin'])){
+    print("Je moet ingelogd zijn om de bestelling te voltooien");
+}else{
 echo '
-
     <form action="betaalpagina.php" method="get">
 <button type="submit" name="afrekenen" value="' .$totaalbedrag.'"> afrekenen</button>
-        </form>';
+        </form>';}
 echo "<div id=\"content\"> </div>";
 ?>
 <a href="Home.php">verder met winkelen</a>

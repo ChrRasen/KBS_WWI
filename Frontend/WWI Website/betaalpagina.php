@@ -80,9 +80,9 @@ print("uw totaal bedrag is: € " .  preg_replace('/\./', ',', $totaalbedrag ));
 
     <div>
                         <h3>Betaalmethode</h3>
-                        <input type="radio" name="redirect" value="http://www.ideal.nl">Ideal<br>
-                        <input type="radio" name="redirect" value="http://www.paypal.nl">Paypal<br>
-                        <input type="radio" name="redirect" value="http://www.mastercard.nl">Maestro<br>
+                        <input type="radio" name="redirect" value="http://localhost/KBS_WWI/Frontend/WWI%20Website/Afgerondebetaling.php">Ideal<br>
+                        <input type="radio" name="redirect" value="http://localhost/KBS_WWI/Frontend/WWI%20Website/Afgerondebetaling.php">Paypal<br>
+                        <input type="radio" name="redirect" value="http://localhost/KBS_WWI/Frontend/WWI%20Website/Afgerondebetaling.php">Maestro<br>
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script>
