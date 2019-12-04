@@ -85,9 +85,8 @@ echo '
     <form action="betaalpagina.php" method="get">
 <button type="submit" name="afrekenen" value="' .$totaalbedrag.'"> afrekenen</button>
         </form>';
+echo "<div id=\"content\"> </div>";
 ?>
-</div>
-<div id="content"> </div>
 <a href="Home.php">verder met winkelen</a>
     <div class="clearFloat"></div>
     <div id="footer"></div>
