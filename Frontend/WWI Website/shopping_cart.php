@@ -2,10 +2,12 @@
 
 <body>
 <div id="header"></div>
-<div id="content">
+
 <?php
+print("<br>");
 include "DatabaseConnection.php";
 include "Index.php";
+
 
 $producten = array();
 $geldopslag = array();
@@ -52,7 +54,7 @@ foreach($producten as $index => $waarde) {
 
     echo  $naam .
         '<input type="number" min="1" value="'.$waarde.'"  name="' . $index . '" class="calculator-input"
-            onkeypress="return event.charCode >= 48 && event.charCode <= 57"></div>' ;
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57">' ;
     if(!($waarde == null)) {
         $PrijsPerProduct = ($PrijsPerStuk * $waarde);
 
@@ -83,8 +85,8 @@ echo '
     <form action="betaalpagina.php" method="get">
 <button type="submit" name="afrekenen" value="' .$totaalbedrag.'"> afrekenen</button>
         </form>';
+echo "<div id=\"content\"> </div>";
 ?>
-</div>
 <a href="Home.php">verder met winkelen</a>
     <div class="clearFloat"></div>
     <div id="footer"></div>
