@@ -3,7 +3,7 @@
 <body>
 <div id="header"></div>
         <div id="content">
-            <h4>Winkelwagen</h4>
+            <h3>Winkelwagen</h3>
 
 <?php
 include "DatabaseConnection.php";
