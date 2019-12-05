@@ -41,6 +41,10 @@ foreach($producten as $index => $waarde) { // sql queries om de naam van het pro
         printf("Error: %s\n", mysqli_error($connection));
         exit();
     }
+    // zodat mensen hem met element inspecteren niet onder 1 kunnen krijgen
+    if($waarde <= 1){
+        $waarde = 1;
+    }
 
     $resultStockItemName = mysqli_fetch_array($sqlquery, MYSQLI_BOTH);
     $naam = $resultStockItemName["StockItemName"];
@@ -56,6 +60,7 @@ foreach($producten as $index => $waarde) { // sql queries om de naam van het pro
             onkeypress="return event.charCode >= 48 && event.charCode <= 57"></div>' ;
     // bepaald de prijs en toont deze !($waarde == null) is er zodat hij het enkel doet als de waarde niet leeg is
     // anders blijft de prijs daarna nog staan
+
     if(!($waarde == null)) {
         $PrijsPerProduct = ($PrijsPerStuk * $waarde);
 
