@@ -28,6 +28,7 @@ $resultReview = mysqli_fetch_array($reviewQuery);
 
 ?>
 <body>
+<!--<link rel="stylesheet" type="text/css" href="style/rating.css">-->
 <div id="header"></div>
 <div id="content">
 <?php
@@ -42,6 +43,7 @@ $gemScore = "Nog geen reviews";
 
 if($aantalReviews != 0 or $totaalScore != 0) {
     $gemScore = $totaalScore / $aantalReviews;
+    $gemScore = round($gemScore);
 }
 
 
@@ -52,8 +54,27 @@ if ($quantity >= 30){
 }
 //print($gemScore);
 
+//laat de rating zien in stars (WIP)
 print($resultStockItemDetails["StockItemName"] . '<br>');
-print("Gemidelde score : " . $gemScore . "<br>");
+if (is_string($gemScore)) {
+    print("geen score's". "<br>");
+}else{
+    echo' <div class="rate">';
+$iloop = 0;
+while ($iloop != 5){
+    $iloop++;
+    if ($gemScore == $iloop) {
+        echo '<input type="radio" name="rate" id="star'.$iloop.'" value="'.$iloop.'" hidden disabled checked> </input>
+        <label for="star'.$iloop.'" title="text"></label>';
+    }else{
+        echo '<input type="radio" name="rate" id="star'.$iloop.'" value="'.$iloop.'" hidden disabled> </input>
+        <label for="star'.$iloop.'" title="text"></label>';
+    }
+}
+echo'</div><br>';
+}
+
+//laat video zien als die er is
 if($video != "") {
     echo '<iframe width="600" height="400"
            src="' . $video . '">
@@ -84,14 +105,14 @@ if($korting != ""){
     }
 }
 
-echo'
+echo' <br>
 <form action="shopping_cart.php" method="get"> 
-<button type="submit" name="erbij" value="'.$StockID.'"> toevoegen aan winkelwagen</button>
+<button type="submit" class="productButton" name="erbij" value="'.$StockID.'"> toevoegen aan winkelwagen</button>
 </form>';
 
 echo'
 <form action="Review.php" method="post">
-<button type="submit" name="Review" value="'.$StockID.'"> Schrijf review </button>
+<button type="submit" class="productButton" name="Review" value="'.$StockID.'"> Schrijf review </button>
 </form>';
 
 //sql voor het krijgen van alle reviews met comentaar
