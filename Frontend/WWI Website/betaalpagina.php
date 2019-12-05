@@ -2,12 +2,12 @@
 
 <body>
 <div id="header"></div>
+        <div id="content">
+            <h3>Winkelwagen</h3>
 
 <?php
-print("<br>");
 include "DatabaseConnection.php";
 include "Index.php";
-
 
 $producten = array();
 $geldopslag = array();
@@ -41,9 +41,7 @@ foreach($producten as $index => $waarde) {
         printf("Error: %s\n", mysqli_error($connection));
         exit();
     }
-  //  if($waarde == null){
-   //     unset($producten[$index]);
-   // }
+
     $resultStockItemName = mysqli_fetch_array($sqlquery, MYSQLI_BOTH);
     $naam = $resultStockItemName["StockItemName"];
 
@@ -52,13 +50,12 @@ foreach($producten as $index => $waarde) {
     $resultUnitPrice = mysqli_fetch_array($sqlquery2, MYSQLI_BOTH);
     $PrijsPerStuk = $resultUnitPrice["UnitPrice"];
 
-    echo  $naam .
-        '<input type="number" min="1" value="'.$waarde.'"  name="' . $index . '" class="calculator-input"
-            onkeypress="return event.charCode >= 48 && event.charCode <= 57">' ;
+    echo  $naam . " " . "Aantal: ";
+
     if(!($waarde == null)) {
         $PrijsPerProduct = ($PrijsPerStuk * $waarde);
 
-        echo($waarde . " totaal: " ."€". preg_replace('/\./', ',', $PrijsPerProduct ));
+        echo($waarde . " totaal: " .  "€" . preg_replace('/\./', ',', $PrijsPerProduct ));
 
 
         $geldopslag[$index] = $PrijsPerProduct;
@@ -75,29 +72,39 @@ if($totaalbedrag > 0) {
 if($totaalbedrag == 0) {
     print('uw winkelwagen is leeg' . '<br>');
 }
-print("uw totaal bedrag is: " ."€". preg_replace('/\./', ',', $totaalbedrag));
-
-echo '<button type="submit" value="submit">aanpassen</button>
-    </form>';
-$_SESSION["Ses_producten"] = $producten;
-
-
-    echo '
-    <form action="betaalpagina.php" method="get">
-<button type="submit" name="afrekenen" value="' . $totaalbedrag . '"> afrekenen</button>
-        </form>';
-    echo "<div id=\"content\"> </div>";
-
+print("Verzendkosten: € 6,95" . "<br>");
+print("uw totaal bedrag is: € " .  preg_replace('/\./', ',', $totaalbedrag ));
 ?>
-<a href="Home.php">verder met winkelen</a>
-    <div class="clearFloat"></div>
-    <div id="footer"></div>
-    <script>
-        $(function(){
-            $("#header").load("header.php");
 
-            $("#footer").load("footer.php");
-        });
-    </script>
+    </div>
+
+    <div>
+                        <h3>Betaalmethode</h3>
+                        <input type="radio" name="redirect" value="http://localhost/KBS_WWI/Frontend/WWI%20Website/Afgerondebetaling.php">Ideal<br>
+                        <input type="radio" name="redirect" value="http://localhost/KBS_WWI/Frontend/WWI%20Website/Afgerondebetaling.php">Paypal<br>
+                        <input type="radio" name="redirect" value="http://localhost/KBS_WWI/Frontend/WWI%20Website/Afgerondebetaling.php">Maestro<br>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script>
+            $('input[type="radio"]').on('click', function() {
+                window.location = $(this).val();
+            });
+        </script>
+
+            </form>
+        </div>
+    </div>
+
+
+</div>
+<div class="clearFloat"></div>
+<div id="footer"></div>
+<script>
+    $(function(){
+        $("#header").load("header.php");
+
+        $("#footer").load("footer.php");
+    });
+</script>
 </body>
 </html>
