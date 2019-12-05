@@ -15,14 +15,14 @@
     <br>
 <form action="Home.php" method="post">
     <div style="width: 100%;text-align:center;">
-        <input type="submit" name="winkel" value="Klik hier om verder te gaan met winkelen"/>
+        <input type="submit" class="productButton"  name="winkel" value="Klik hier om door te gaan"/>
     </div>
 </form>
     <?php
     unset($_SESSION["Ses_producten"]);
     ?>
     <br>
-    <center><img src="Project/Afgerond.jpg" alt="Afgerond"  height="500" width="500"></center>
+    <center><img src="Project/Afgerond.jpg" alt="Afgerond"  height="450" width="450"></center>
     <br>
     <br>
 <div id="footer"></div>

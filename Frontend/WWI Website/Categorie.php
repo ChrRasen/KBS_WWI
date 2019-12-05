@@ -44,7 +44,7 @@ $max = "SELECT COUNT(s.stockitemid) AS maxitems FROM stockitems S JOIN stockitem
 ON S.stockitemid = SI.StockItemID JOIN stockgroups SG
 ON SI.StockGroupID = SG.StockGroupID
 WHERE StockGroupName =?";
-
+//Prepared statement tegen sql injections
 $statementMax = mysqli_prepare($connection, $max);
 mysqli_stmt_bind_param($statementMax, 's', $categorieNaam);
 mysqli_stmt_execute($statementMax);
@@ -61,7 +61,7 @@ WHERE StockGroupName =?
 GROUP BY S.StockitemID
 ORDER BY S.StockitemID
 LIMIT ? OFFSET ?";
-
+//Prepared statement tegen sql injections
 $statement = mysqli_prepare($connection, $categorie);
 mysqli_stmt_bind_param($statement, 'sii', $categorieNaam, $limit, $offsetSQL);
 mysqli_stmt_execute($statement);
@@ -86,7 +86,7 @@ while ($row = mysqli_fetch_array($resultmax, MYSQLI_ASSOC)) {
 }
 
 $maxPages = $maxItems / $limit;
-
+//Haalt de informatie van de producten op
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     $StockItemName = $row["stockitemname"];
     $StockID = $row["stockitemid"];
