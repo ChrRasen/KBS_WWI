@@ -2,10 +2,12 @@
 
 <body>
 <div id="header"></div>
-<div id="content">
+
 <?php
+print("<br>");
 include "DatabaseConnection.php";
 include "Index.php";
+
 
 $producten = array();
 $geldopslag = array();
@@ -88,15 +90,16 @@ echo '<button type="submit" value="submit">aanpassen</button>
     </form>';
 // session aanmaken zodat hij het onthoud ook als je naar andere pagina's gaat
 $_SESSION["Ses_producten"] = $producten;
-//button om naar de betaalpagina te gaan geeft het totaalbedrag met eventuele bezorgkosten meegerekend mee
-echo '
 
+//button om naar de betaalpagina te gaan geeft het totaalbedrag met eventuele bezorgkosten meegerekend mee
+    echo '
     <form action="betaalpagina.php" method="get">
-<button type="submit" name="afrekenen" value="' .$totaalbedrag.'"> afrekenen</button>
+<button type="submit" name="afrekenen" value="' . $totaalbedrag . '"> afrekenen</button>
         </form>';
-//de link terug naar de home page en CSS voor footer en header
+        //de link terug naar de home page en CSS voor footer en header
+    echo "<div id=\"content\"> </div>";
+
 ?>
-</div>
 <a href="Home.php">verder met winkelen</a>
     <div class="clearFloat"></div>
     <div id="footer"></div>

@@ -19,20 +19,25 @@ a {
     text-decoration: none;
 }
 .product {
+    text-align: center;
     float: left;
+    font-size: 23px;
     width: 33.333%;
     width: calc(33.333% - 20px);
     width: -webkit-calc(33.333% - 20px);
     width: -moz-calc(33.333% - 20px);
     margin: 10px;
     padding: 10px;
-    text-align: center;
+    border: 1px solid #62b4cf;
+}
 
-}
 .product img {
-    max-width: 300px;
-    max-height: 300px;
+    position: relative;
+    float: left;
+    width:  250px;
+    height: 200px;
 }
+
 .product .price {
     color: #eb0400;
 }

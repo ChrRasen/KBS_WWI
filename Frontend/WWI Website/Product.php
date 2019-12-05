@@ -1,6 +1,8 @@
 <html>
 <?php
 include "DatabaseConnection.php";
+include "Index.php";
+
 
 $StockID = $_GET["ProductID"];
 
@@ -27,7 +29,11 @@ $resultReview = mysqli_fetch_array($reviewQuery);
 
 ?>
 <body>
+<!--<link rel="stylesheet" type="text/css" href="style/rating.css">-->
+<div id="header"></div>
+<div id="content">
 <?php
+print("<br>");
 $korting = floatval($resultStockItemDetails['discount'] / 100);
 $prijs = floatval($resultStockItemDetails['UnitPrice']);
 $prijsMetKorting = $prijs * (1 - $korting);
@@ -39,6 +45,7 @@ $gemScore = "Nog geen reviews";
 
 if($aantalReviews != 0 or $totaalScore != 0) {
     $gemScore = $totaalScore / $aantalReviews;
+    $gemScore = round($gemScore);
 }
 
 
@@ -49,8 +56,27 @@ if ($quantity >= 30){
 }
 //print($gemScore);
 
+//laat de rating zien in stars (WIP)
 print($resultStockItemDetails["StockItemName"] . '<br>');
-print("Gemidelde score : " . $gemScore . "<br>");
+if (is_string($gemScore)) {
+    print("geen score's". "<br>");
+}else{
+    echo' <div class="rate">';
+$iloop = 0;
+while ($iloop != 5){
+    $iloop++;
+    if ($gemScore == $iloop) {
+        echo '<input type="radio" name="rate" id="star'.$iloop.'" value="'.$iloop.'" hidden disabled checked> </input>
+        <label for="star'.$iloop.'" title="text"></label>';
+    }else{
+        echo '<input type="radio" name="rate" id="star'.$iloop.'" value="'.$iloop.'" hidden disabled> </input>
+        <label for="star'.$iloop.'" title="text"></label>';
+    }
+}
+echo'</div><br>';
+}
+
+//laat video zien als die er is
 if($video != "") {
     echo '<iframe width="600" height="400"
            src="' . $video . '">
@@ -58,8 +84,9 @@ if($video != "") {
             <br>';
 }
 if($korting != ""){
+    echo'<div class="discount-label blue"> <span>-20%</span> </div><br><br><br><br>';
     print("price per unit: €   " . $prijsMetKorting . "<br>");
-    print($korting * 100 . '% korting <br>');
+   //print($korting * 100 . '% korting <br>');
     echo' <font size = "4" color="Blue">   verzend kosten: €2,50</font>   <br>';
     print("Quantity on hand:  " . $quantity . '<br>');
     if(mysqli_num_rows($result2) > 0) {
@@ -69,7 +96,7 @@ if($korting != ""){
         }
     }
 }else{
-    print("price per unit: €   " . $prijs . "<br>");
+    print("price per unit: €   " .preg_replace('/\./', ',', $prijs). "<br>");
     echo' <font size = "4" color="Blue">   verzend kosten: €2,50</font>   <br>';
     print("Quantity on hand:  " . $quantity . '<br>');
     if(mysqli_num_rows($result2) > 0) {
@@ -80,18 +107,32 @@ if($korting != ""){
     }
 }
 
-echo'
+echo' <br>
 <form action="shopping_cart.php" method="get"> 
-<button type="submit" name="erbij" value="'.$StockID.'"> toevoegen aan winkelwagen</button>
+<button type="submit" class="productButton" name="erbij" value="'.$StockID.'"> toevoegen aan winkelwagen</button>
+</form>';
+
+echo'
+<form action="Review.php" method="post">
+<button type="submit" class="productButton" name="Review" value="'.$StockID.'"> Schrijf review </button>
 </form>';
 
 //sql voor het krijgen van alle reviews met comentaar
-$reviewComentaarQuery = mysqli_query($connection, "SELECT R.comentaar,R.score ,K.naam FROM review R join klantgegevens K ON K.email = R.email WHERE stockitemid = $StockID");
+$reviewComentaarQuery = mysqli_query($connection, "SELECT R.comentaar,R.score ,K.achternaam FROM review R join klantgegevens K ON K.email = R.email WHERE stockitemid = $StockID");
 while($resultCR = mysqli_fetch_array($reviewComentaarQuery, MYSQLI_ASSOC)){
-    print($resultCR['naam']. " score "  . $resultCR['score']. "<br>");
+    print($resultCR['achternaam']. " score "  . $resultCR['score']. "<br>");
     print($resultCR['comentaar']. "<br><br>");
 }
 
 ?>
+    <div class="clearFloat" top="10px"></div>
+    <div id="footer"></div>
+    <script>
+        $(function(){
+            $("#header").load("header.php");
+
+            $("#footer").load("footer.php");
+        });
+    </script>
 </body>
 </html>
