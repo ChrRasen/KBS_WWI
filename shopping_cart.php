@@ -6,9 +6,9 @@
 session_start();
 include "DatabaseConnection.php";
 $producten = array();
-
+$geldopslag = array();
 if(empty($_SESSION["Ses_producten"])){
-    print('winkelwagen is nog leeg');
+    print('');
 }elseif (!($_SESSION["Ses_producten"] === null)){
     $producten = $_SESSION["Ses_producten"];
 }
@@ -60,7 +60,6 @@ foreach($producten as $index => $waarde) {
     }
 }
 
-
 $totaalbedrag = array_sum($geldopslag);
 if($totaalbedrag > 0) {
     if ($totaalbedrag <= 40) {
@@ -69,20 +68,13 @@ if($totaalbedrag > 0) {
 }
 print("uw totaal bedrag is: " . $totaalbedrag);
 
-    echo  $naam .
-        '<input type="number" min="1" value="'.$waarde.'"  name="' . $index . '" class="calculator-input"
-            onkeypress="return event.charCode >= 48 && event.charCode <= 57"></div>' ;
-    $PrijsPerProduct = ($PrijsPerStuk * $waarde);
-    echo(" " . $PrijsPerProduct);
-    echo'<br>';
-
 echo '<button type="submit" value="submit">aanpassen</button>
     </form>';
 $_SESSION["Ses_producten"] = $producten;
-echo'
+echo '
 
-    <form action="betaalpagina.php" method="get">
-<button type="submit" name="afrekenen" value="'.$totaalbedrag.'"> afrekenen</button>
+    <form action="Frontend/WWI Website/betaalpagina.php" method="get">
+<button type="submit" name="afrekenen" value="' .$totaalbedrag.'"> afrekenen</button>
         </form>';
 ?>
 
