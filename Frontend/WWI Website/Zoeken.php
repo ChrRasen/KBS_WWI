@@ -140,9 +140,7 @@ if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
 <div class="clearFloat" top="10px"></div>
 
 </div>
-<?php
-print($offset.$offsetSQL)
-?>
+
 
 <div class="clearFloat"></div>
 
