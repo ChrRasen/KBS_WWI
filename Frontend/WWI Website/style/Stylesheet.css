@@ -596,13 +596,25 @@ form {
 .productButton{
     text-transform: uppercase;
     outline: 0;
-    background: #62b4cf;;
+    background: #62b4cf;
     width: 300px;
     border: 0;
     padding: 15px;
     color: #FFFFFF;
     font-size: 14px;
     cursor: pointer;
+}
+.toevoegenWWButton{
+    text-transform: uppercase;
+    outline: 0;
+    background: #f3d63d;
+    width: 300px;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+
 }
 
 

@@ -109,7 +109,7 @@ if($korting != ""){
 
 echo' <br>
 <form action="shopping_cart.php" method="get"> 
-<button type="submit" class="productButton" name="erbij" value="'.$StockID.'"> toevoegen aan winkelwagen</button>
+<button type="submit" class="toevoegenWWButton" name="erbij" value="'.$StockID.'"> toevoegen aan winkelwagen</button>
 </form>';
 
 echo'
