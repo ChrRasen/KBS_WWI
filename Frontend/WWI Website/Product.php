@@ -67,10 +67,10 @@ while ($iloop != 5){
     $iloop++;
     if ($gemScore == $iloop) {
         echo '<input type="radio" name="rate" id="star'.$iloop.'" value="'.$iloop.'" hidden disabled checked> </input>
-        <label for="star'.$iloop.'" title="text"></label>';
+        <label for="star'.$iloop.'" ></label>';
     }else{
         echo '<input type="radio" name="rate" id="star'.$iloop.'" value="'.$iloop.'" hidden disabled> </input>
-        <label for="star'.$iloop.'" title="text"></label>';
+        <label for="star'.$iloop.'" ></label>';
     }
 }
 echo'</div><br>';
