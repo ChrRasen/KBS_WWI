@@ -17,7 +17,7 @@ form {
 /* Add a black background color to the top navigation */
 header {
     height: 120px;
-    background-color: #62b4cf;
+    background-color: 	#C0C0C0;
     box-shadow: 0px 5px 3px 0px rgba(0,0,0,.2)
 }
 
@@ -368,7 +368,7 @@ form {
 
 /* FOOTER */
 .footer {
-    background: #62b4cf;
+    background: 	#C0C0C0;
     color: white;
     height: 200px;
     position: relative;
@@ -390,7 +390,7 @@ form {
 }
 
 .footer .footer-bottom {
-    background: #62b4cf;
+    background: 	#C0C0C0;
     color: black;
     opacity: 50%;
     height: 33px;
