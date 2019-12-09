@@ -91,6 +91,21 @@ header .menu-toggle{
     text-align: center;
 }
 
+.cart-content {
+    margin: 0 auto;
+    max-width: 1100px;
+    text-align: center;
+
+}
+.cart{
+    text-align: center;
+    top: 10px;
+    border: solid blue;
+}
+.cartProduct {
+    border: 20px;
+    border: solid blue;
+}
 .clearFloat {
     clear: both;
     bottom: 0px;
