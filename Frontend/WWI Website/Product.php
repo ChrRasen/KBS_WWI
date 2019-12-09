@@ -67,10 +67,10 @@ while ($iloop != 5){
     $iloop++;
     if ($gemScore == $iloop) {
         echo '<input type="radio" name="rate" id="star'.$iloop.'" value="'.$iloop.'" hidden disabled checked> </input>
-        <label for="star'.$iloop.'" title="text"></label>';
+        <label for="star'.$iloop.'" ></label>';
     }else{
         echo '<input type="radio" name="rate" id="star'.$iloop.'" value="'.$iloop.'" hidden disabled> </input>
-        <label for="star'.$iloop.'" title="text"></label>';
+        <label for="star'.$iloop.'" ></label>';
     }
 }
 echo'</div><br>';
@@ -109,7 +109,7 @@ if($korting != ""){
 
 echo' <br>
 <form action="shopping_cart.php" method="get"> 
-<button type="submit" class="productButton" name="erbij" value="'.$StockID.'"> toevoegen aan winkelwagen</button>
+<button type="submit" class="toevoegenWWButton" name="erbij" value="'.$StockID.'"> toevoegen aan winkelwagen</button>
 </form>';
 
 echo'

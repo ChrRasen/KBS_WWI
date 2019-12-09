@@ -46,7 +46,7 @@ if(empty($_SESSION["loggedin"])){
                 Inloggen
             </a></li>");
         }else{
-            print("<li><a title=\"Uitloggen\" id='myBtn2'><i class=\"fas fa-user\"></i>
+            print("<li><a title=\"Uitloggen\" href=\"http://localhost/KBS_WWI/Frontend/WWI%20Website/logout.php\" id='myBtn2'><i class=\"fas fa-user\"></i>
                 Uitloggen
             </a></li>");
         }
