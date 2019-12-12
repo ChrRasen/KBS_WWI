@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ececaa1e-921b-41c9-b79d-33022713c6ea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/style/Stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/style/Stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zoeken.php" beforeDir="false" afterPath="$PROJECT_DIR$/Zoeken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/WWI Website/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/WWI Website/Product.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,6 +79,8 @@
       <workItem from="1575027798789" duration="2521000" />
       <workItem from="1575280832934" duration="9210000" />
       <workItem from="1575292862256" duration="1780000" />
+      <workItem from="1575970209532" duration="4467000" />
+      <workItem from="1576151776333" duration="3885000" />
     </task>
     <servers />
   </component>
@@ -99,5 +99,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/Frontend/WWI Website/Zoeken.php</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

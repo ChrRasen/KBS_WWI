@@ -37,7 +37,8 @@ $resultReview = mysqli_fetch_array($reviewQuery);
 <body>
 <!--<link rel="stylesheet" type="text/css" href="style/rating.css">-->
 <div id="header"></div>
-<div id="content">
+<div class="content">
+    <div class="productContent">
     <?php
     print("<br>");
 
@@ -66,7 +67,10 @@ $resultReview = mysqli_fetch_array($reviewQuery);
     //print($gemScore);
 
     //laat de rating zien in stars (WIP)
+    echo '<div class="product-title">';
     print($resultStockItemDetails["StockItemName"] . '<br>');
+    echo '</div>';
+    echo '<div class="product-score">';
     if (is_string($gemScore)) {
         print("geen score's" . "<br>");
     } else {
@@ -83,44 +87,53 @@ $resultReview = mysqli_fetch_array($reviewQuery);
             }
         }
         echo '</div><br>';
-    }
 
+    }
+    echo '</div>';
     //laat video zien als die er is
+    echo '<div class="product-video">';
     if ($video != "") {
         echo '<iframe width="600" height="400"
            src="' . $video . '">
            </iframe>
             <br>';
     }
+    echo '</div>';
+
     if ($korting != "") {
-        echo '<div class="discount-label blue"> <span>-20%</span> </div><br><br><br><br>';
+
+        echo '<div class="product-discount">';
+        echo '<div class="discount-label blue"> <span>-'.$korting * 100 .'%</span> </div><br><br><br><br>';
+        echo '</div>';
+        echo '<div class="product-price">';
         print("price per unit: €   " . $prijsMetKorting . "<br>");
+
         //print($korting * 100 . '% korting <br>');
         echo ' <font size = "4" color="Blue">   verzend kosten: €6,95</font>   <br>';
         print("Quantity on hand:  " . $quantity . '<br>');
-        if (mysqli_num_rows($result2) > 0) {
-            while ($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) {
-                $StockPhoto2 = $row["Photo"];
-                print("<img src=\"$StockPhoto2\" style=\"width: 150px\"><br>");
-            }
-        }
+        echo '</div>';
+
     } else {
         print("price per unit: €   " . preg_replace('/\./', ',', $prijs) . "<br>");
         echo ' <font size = "4" color="Blue">   verzend kosten: €6,95</font>   <br>';
         print("Quantity on hand:  " . $quantity . '<br>');
-        if (mysqli_num_rows($result2) > 0) {
-            while ($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) {
-                $StockPhoto2 = $row["Photo"];
-                print("<img src=\"$StockPhoto2\" style=\"width: 150px\"><br>");
-            }
+
+    }
+    echo '<div class="product-foto">';
+    if (mysqli_num_rows($result2) > 0) {
+        while ($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) {
+            $StockPhoto2 = $row["Photo"];
+            print("<img src=\"$StockPhoto2\" style=\"width: 150px\"><br>");
         }
     }
-
+    echo '</div>';
+    echo '<div class="product-cart">';
     echo ' <br>
 <form action="shopping_cart.php" method="get"> 
 <button type="submit" class="toevoegenWWButton" name="erbij" value="' . $StockID . '"> toevoegen aan winkelwagen</button>
 </form>';
-
+    echo '</div>';
+    echo '<div class="product-review">';
     echo '
 <form action="Review.php" method="post">
 <button type="submit" class="productButton" name="Review" value="' . $StockID . '"> Schrijf review </button>
@@ -134,8 +147,11 @@ $resultReview = mysqli_fetch_array($reviewQuery);
         print($resultCR['comentaar'] . "<br><br>");
     }
     }
+    echo '</div>';
 
 ?>
+    </div>
+</div>
     <div class="clearFloat" top="10px"></div>
     <div id="footer"></div>
     <script>
