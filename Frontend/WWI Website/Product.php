@@ -31,7 +31,7 @@ $resultReview = mysqli_fetch_array($reviewQuery);
 <body>
 <!--<link rel="stylesheet" type="text/css" href="style/rating.css">-->
 <div id="header"></div>
-<div id="content">
+<div class="content">
 <?php
 print("<br>");
 $korting = floatval($resultStockItemDetails['discount'] / 100);
@@ -108,7 +108,7 @@ if($korting != ""){
 }
 
 echo' <br>
-<form action="shopping_cart.php" method="get"> 
+<form action="shopping_cart.php" method="post"> 
 <button type="submit" class="toevoegenWWButton" name="erbij" value="'.$StockID.'"> toevoegen aan winkelwagen</button>
 </form>';
 
@@ -125,6 +125,7 @@ while($resultCR = mysqli_fetch_array($reviewComentaarQuery, MYSQLI_ASSOC)){
 }
 
 ?>
+    </div>
     <div class="clearFloat" top="10px"></div>
     <div id="footer"></div>
     <script>
