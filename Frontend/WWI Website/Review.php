@@ -48,11 +48,11 @@ $result2 = mysqli_stmt_get_result($searchSQL2);
             <br>
           <textarea class="textarea" name="textarea" id="counter-input" maxlength="255" cols="75" rows="10" style="resize: none"></textarea>
             <br>
-            <input type="radio" name="score" value="1">
-            <input type="radio" name="score" value="2">
-            <input type="radio" name="score" value="3">
-            <input type="radio" name="score" value="4">
-            <input type="radio" name="score" value="5">
+            <input type="radio" name="score" value="1"> 1
+            <input type="radio" name="score" value="2"> 2
+            <input type="radio" name="score" value="3"> 3
+            <input type="radio" name="score" value="4"> 4
+            <input type="radio" name="score" value="5"> 5
             <br>
             <button class="productButton" name="submit" type="submit" value="true">submit review</button>
         </div>
@@ -61,23 +61,14 @@ $result2 = mysqli_stmt_get_result($searchSQL2);
 </div>
 
 <?php
-
 if(isset($_POST["submit"])) {
-    if(isset($_POST["score"])) {
-        if ($_POST["submit"] == true) {
-            $score = $_POST["score"] ;
-            $comentaar = $_POST["textarea"];
-
-            $InsertIntoReview = "insert into review (Email, StockItemID, Score, Comentaar)
-                            VALUES (?,?,?,?)";
-            mysqli_prepare($connection, $InsertIntoReview);
-            mysqli_stmt_bind_param($InsertIntoReview, 'siis', $email, $productID, $score, $comentaar);
-
-            mysqli_stmt_execute($InsertIntoReview);
-            mysqli_stmt_close($InsertIntoReview);
-        }else{
-            echo '<h1 style="color: red"> geef score aan </h1>';
-        }
+    $text = $_POST["textarea"];
+    $score= $_POST["score"];
+    if ($_POST["submit"] == true) {
+        $stmt = mysqli_prepare($connection, "INSERT INTO review (Email, StockItemID, Score, Comentaar) VALUES (?, ?, ?, ?)");
+        mysqli_stmt_bind_param($stmt, 'siis', $email, $productID, $score, $text);
+        $SQLreview = mysqli_stmt_execute($stmt);
+        header('Location: http://localhost/KBS_WWI/Frontend/WWI%20Website/Product.php?ProductID='.$productID);
     }
 }
 ?>
@@ -103,9 +94,6 @@ counter.init();
 
 })();
 </script>
-
-
-
 
 <div class="clearFloat" top="10px"></div>
 <div id="footer"></div>
