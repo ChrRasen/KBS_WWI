@@ -48,11 +48,11 @@ $result2 = mysqli_stmt_get_result($searchSQL2);
             <br>
           <textarea class="textarea" name="textarea" id="counter-input" maxlength="255" cols="75" rows="10" style="resize: none"></textarea>
             <br>
-            <input type="radio" name="score" value="1">
-            <input type="radio" name="score" value="2">
-            <input type="radio" name="score" value="3">
-            <input type="radio" name="score" value="4">
-            <input type="radio" name="score" value="5">
+            <input type="radio" name="score" value="1"> 1
+            <input type="radio" name="score" value="2"> 2
+            <input type="radio" name="score" value="3"> 3
+            <input type="radio" name="score" value="4"> 4
+            <input type="radio" name="score" value="5"> 5
             <br>
             <button class="productButton" name="submit" type="submit" value="true">submit review</button>
         </div>
@@ -65,8 +65,10 @@ $result2 = mysqli_stmt_get_result($searchSQL2);
 if(isset($_POST["submit"])) {
     if(isset($_POST["score"])) {
         if ($_POST["submit"] == true) {
-            $score = $_POST["score"] ;
-            $comentaar = $_POST["textarea"];
+            $score = intval($_POST["score"]);
+            $comentaar = strval($_POST["textarea"]);
+            $email = strval($email);
+            $productID = intval($productID);
 
             $InsertIntoReview = "insert into review (Email, StockItemID, Score, Comentaar)
                             VALUES (?,?,?,?)";
@@ -103,9 +105,6 @@ counter.init();
 
 })();
 </script>
-
-
-
 
 <div class="clearFloat" top="10px"></div>
 <div id="footer"></div>

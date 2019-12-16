@@ -131,7 +131,7 @@ $resultReview = mysqli_fetch_array($reviewQuery);
 
     echo '<div class="product-cart">';
     echo ' <br>
-<form action="shopping_cart.php" method="get">
+<form action="shopping_cart.php" method="post">
 <button type="submit" class="toevoegenWWButton" name="erbij" value="' . $StockID . '"> toevoegen aan winkelwagen</button>
 </form>';
 
