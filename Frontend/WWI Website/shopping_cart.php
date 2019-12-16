@@ -92,12 +92,15 @@ echo '<button type="submit" value="submit">aanpassen</button>
 $_SESSION["Ses_producten"] = $producten;
 
 //button om naar de betaalpagina te gaan geeft het totaalbedrag met eventuele bezorgkosten meegerekend mee
+if(!isset($_SESSION['loggedin'])){
+    print('Je moet ingelogd zijn om te kunnen bestellen<br>');
+}else {
     echo '
     <form action="betaalpagina.php" method="get">
 <button type="submit" name="afrekenen" value="' . $totaalbedrag . '"> afrekenen</button>
         </form>';
-        //de link terug naar de home page en CSS voor footer en header
     echo "<div id=\"content\"> </div>";
+}
 
 ?>
 <a href="Home.php">verder met winkelen</a>

@@ -1,19 +1,4 @@
 <html>
-<script>
-    <!--
-
-    function autoChange()
-    {var timeID = setTimeout("location.href= './Home.php'", 3000)}
-
-    // (function()
-    // {if( window.localStorage )
-    // {if( !localStorage.getItem('firstLoad') )
-    // {localStorage['firstLoad'] = true;
-    //     window.location.reload();
-    // }else localStorage.removeItem('firstLoad');}})();
-
-    //-->
-</script>
 <head>
     <?php include "./Index.php" ?>
 </head>
@@ -133,11 +118,26 @@ if(empty($_SESSION["loggedin"])){
             modal.style.display = "none";
         }
     }
+    function autoChange() {
+        var timeID = setTimeout("location.href= './Home.php'", 3000)
+    }
+    (function () {
+        if(window.location.href == "http://localhost/KBS_WWI/Frontend/WWI%20Website/header.php")
+        {
+            if (window.localStorage) {
+                if (!localStorage.getItem('firstLoad')) {
+                    localStorage['firstLoad'] = true;
+                    window.location.reload();
+                } else localStorage.removeItem('firstLoad');
+            }
+        }
+    })();
 </script>
 <?php
 include('Registreerpagina.php');
 include('Inlogpagina.php');
 ?>
+
 </body>
 
 </html>
