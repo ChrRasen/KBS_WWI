@@ -3,7 +3,7 @@
 include "DatabaseConnection.php";
 include "Index.php";
 
-if(!isset($_GET["ProductID"]) OR $_GET["ProductID"] != is_numeric($_GET["ProductID"])){
+if(!isset($_GET["ProductID"]) OR $_GET["ProductID"] != is_numeric($_GET["ProductID"]) OR $_GET["ProductID"] == ""){
     header('Location: Home.php');
 }else{
 $StockID = $_GET["ProductID"];
@@ -42,7 +42,7 @@ $resultReview = mysqli_fetch_array($reviewQuery);
     <?php
     print("<br>");
 
-    $resultReview = mysqli_fetch_array($reviewQuery);
+
 
     $korting = floatval($resultStockItemDetails['discount'] / 100);
     $prijs = floatval($resultStockItemDetails['UnitPrice']);
@@ -52,6 +52,8 @@ $resultReview = mysqli_fetch_array($reviewQuery);
     $aantalReviews = $resultReview["aantal"];
     $totaalScore = $resultReview["totaalScore"];
     $gemScore = "Nog geen reviews";
+
+
 
     if ($aantalReviews != 0 or $totaalScore != 0) {
         $gemScore = $totaalScore / $aantalReviews;
@@ -71,7 +73,8 @@ $resultReview = mysqli_fetch_array($reviewQuery);
     print($resultStockItemDetails["StockItemName"] . '<br>');
     echo '</div>';
     echo '<div class="product-score">';
-    if (is_string($gemScore)) {
+
+    if ($gemScore == "Nog geen reviews") {
         print("geen score's" . "<br>");
     } else {
         echo ' <div class="rate">';
