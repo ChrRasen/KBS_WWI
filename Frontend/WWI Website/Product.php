@@ -173,7 +173,7 @@ $resultReview = mysqli_fetch_array($reviewQuery);
 </form>';
 
         echo '<div class="product-conversion">Voor 23.59 uur besteld,morgen gratis bezorgd<br>
-    Gratis binnen 30 dagen te retourneren<br> 2 jaar garantie op je slimme horloge<br>
+    Gratis binnen 30 dagen te retourneren<br> 2 jaar garantie<br>
     </div>';
         echo '</div>';
         echo '</div>';
