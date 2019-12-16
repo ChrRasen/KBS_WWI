@@ -68,6 +68,7 @@ if(isset($_POST["submit"])) {
         $stmt = mysqli_prepare($connection, "INSERT INTO review (Email, StockItemID, Score, Comentaar) VALUES (?, ?, ?, ?)");
         mysqli_stmt_bind_param($stmt, 'siis', $email, $productID, $score, $text);
         $SQLreview = mysqli_stmt_execute($stmt);
+        header('Location: http://localhost/KBS_WWI/Frontend/WWI%20Website/Product.php?ProductID='.$productID);
     }
 }
 ?>

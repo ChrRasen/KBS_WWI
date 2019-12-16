@@ -57,7 +57,7 @@ $resultReview = mysqli_fetch_array($reviewQuery);
         $gemScore = $totaalScore / $aantalReviews;
         $gemScore = round($gemScore);
     }
-
+print($gemScore);
 
     if ($quantity >= 30) {
         $quantity = '30+';
@@ -79,7 +79,7 @@ $resultReview = mysqli_fetch_array($reviewQuery);
         $iloop = 0;
         while ($iloop != 5) {
             $iloop++;
-            if ($gemScore == $iloop) {
+            if ((6 - $gemScore) == $iloop) {
                 echo '<input type="radio" name="rate" id="star' . $iloop . '" value="' . $iloop . '" hidden disabled checked> </input>
         <label for="star' . $iloop . '" ></label>';
             } else {
