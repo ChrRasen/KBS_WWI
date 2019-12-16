@@ -85,7 +85,7 @@ header .menu-toggle{
     display: none;
 }
 body .cartbackground {
-    background-image: url("global_network.jpg");
+    background-image: url("White-Pattern-Background-Wallpaper.jpg");
     background-color: #62a0cf;
 }
 
@@ -316,11 +316,11 @@ body .cartbackground {
 .cart{
     text-align: center;
     top: 10px;
-    border: solid blue;
+    border: solid black;
 }
 .cartProduct {
     border: 20px;
-    border: solid blue;
+    border: solid black;
 }
 .clearFloat {
     clear: both;
