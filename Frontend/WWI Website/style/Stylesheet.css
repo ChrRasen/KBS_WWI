@@ -85,9 +85,9 @@ header .menu-toggle{
     display: none;
 }
 body .cartbackground {
-      background-image: url("global_network.jpg");
-background-color: #62a0cf;
-  }
+    background-image: url("global_network.jpg");
+    background-color: #62a0cf;
+}
 
 .continuebox {
     border: #62a0cf;
@@ -96,7 +96,75 @@ background-color: #62a0cf;
     margin-left: 300px;
     margin-right: 300px;
     text-align: center;
+    background-color: #F8F8FF;
+    margin-top: 10px;
+}
 
+.cartbox {
+    border: #62a0cf;
+    border: solid 2px;
+    max-width: 1100px;
+    text-align: center;background-color: #F8F8FF;
+    margin-top: 10px;
+}
+
+.leftbutton{
+    float: left;
+    margin: 5px;
+}
+
+.rightbutton{
+    float: right;
+    margin-top: -12px;
+    margin-right: 5px;
+}
+.content {
+    margin: 0 auto;
+    max-width: 1100px;
+    text-align: center;
+    height: 100%;
+}
+
+.cartcontent {
+    margin: 0 auto;
+    max-width: 50%;
+    height: 100%;
+}
+
+.cartProduct {
+    margin: 10px;
+    background-color: #F8F8FF;
+    text-align: left;
+    max-width: 50%;
+    margin-top: -7px;
+}
+.clearFloat {
+    clear: both;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.cartButton{
+    text-transform: uppercase;
+    outline: 0;
+    background: #696969;
+    width: 300px;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.toevoegenWWButton {
+    text-transform: uppercase;
+    outline: 0;
+}
+
+.cartlink{
+    text-align: center;
+    top: 10px;
+    border: solid black;
 }
 
 .productContent {
