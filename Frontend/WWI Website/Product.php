@@ -87,7 +87,7 @@ if($korting != ""){
     echo'<div class="discount-label blue"> <span>-20%</span> </div><br><br><br><br>';
     print("price per unit: €   " . $prijsMetKorting . "<br>");
    //print($korting * 100 . '% korting <br>');
-    echo' <font size = "4" color="Blue">   verzend kosten: €2,50</font>   <br>';
+    echo' <font size = "4" color="Blue">   verzend kosten: €6,95</font>   <br>';
     print("Quantity on hand:  " . $quantity . '<br>');
     if(mysqli_num_rows($result2) > 0) {
         while ($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) {
@@ -112,10 +112,17 @@ echo' <br>
 <button type="submit" class="toevoegenWWButton" name="erbij" value="'.$StockID.'"> toevoegen aan winkelwagen</button>
 </form>';
 
-echo'
-<form action="Review.php" method="post">
-<button type="submit" class="productButton" name="Review" value="'.$StockID.'"> Schrijf review </button>
-</form>';
+if($_SESSION["loggedin"] == true) {
+    echo '
+        <form action="Review.php" method="post">
+        <button type="submit" class="productButton" name="Review" value="' . $StockID . '"> Schrijf review </button>
+         </form>';
+}else{
+    print("login om review te schrijven". "<br>");
+    echo'<button type="submit" class="productButton" name="Review" value="' . $StockID . '"disabled> Schrijf review </button>';
+
+}
+
 
 //sql voor het krijgen van alle reviews met comentaar
 $reviewComentaarQuery = mysqli_query($connection, "SELECT R.comentaar,R.score ,K.achternaam FROM review R join klantgegevens K ON K.email = R.email WHERE stockitemid = $StockID");
