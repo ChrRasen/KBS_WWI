@@ -131,8 +131,8 @@ $resultReview = mysqli_fetch_array($reviewQuery);
 
         $reviewComentaarQuery = mysqli_query($connection, "SELECT R.comentaar,R.score ,K.achternaam FROM review R join klantgegevens K ON K.email = R.email WHERE stockitemid = $StockID");
         while ($resultCR = mysqli_fetch_array($reviewComentaarQuery, MYSQLI_ASSOC)) {
-            print($resultCR['achternaam'] . " score " . $resultCR['score']);
-            print($resultCR['comentaar']);
+            print($resultCR['achternaam'] . " score " . $resultCR['score']."<br>");
+            print($resultCR['comentaar']."<br><br>");
         }
         }
         echo '</div>';
