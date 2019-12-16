@@ -61,13 +61,23 @@ $result2 = mysqli_stmt_get_result($searchSQL2);
 </div>
 
 <?php
+
 if(isset($_POST["submit"])) {
-    if ($_POST["submit"] == true) {
-        $InsertIntoReview = "insert into review (Email, StockItemID, Score, Comentaar)
-                            VALUES (?, ?, ?, ?)";
-        mysqli_prepare($connection, $InsertIntoReview);
-        mysqli_stmt_bind_param($InsertIntoReview, 'siis', $email, $productID, $_POST["score"], $_POST["textarea"]);
-        $SQLreview = mysqli_stmt_execute($InsertIntoReview);
+    if(isset($_POST["score"])) {
+        if ($_POST["submit"] == true) {
+            $score = $_POST["score"] ;
+            $comentaar = $_POST["textarea"];
+
+            $InsertIntoReview = "insert into review (Email, StockItemID, Score, Comentaar)
+                            VALUES (?,?,?,?)";
+            mysqli_prepare($connection, $InsertIntoReview);
+            mysqli_stmt_bind_param($InsertIntoReview, 'siis', $email, $productID, $score, $comentaar);
+
+            mysqli_stmt_execute($InsertIntoReview);
+            mysqli_stmt_close($InsertIntoReview);
+        }else{
+            echo '<h1 style="color: red"> geef score aan </h1>';
+        }
     }
 }
 ?>
