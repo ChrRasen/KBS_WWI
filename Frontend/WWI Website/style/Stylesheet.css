@@ -292,7 +292,12 @@ body .cartbackground {
 /* Betaalpagina */
 
 .paymentMethod{
-    text-align: center;
+
+}
+
+.paymentHeader li{
+    font-size: 30px;
+    border: black solid 1px;
 }
 
 .paymentMethod li{
@@ -303,7 +308,8 @@ body .cartbackground {
     display: inline;
     max-width: 175px;
     max-height: 175px;
-    display: inline;
+    margin-left: 20px;
+
 }
 
 /* WINKELWAGEN */
