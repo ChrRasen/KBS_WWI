@@ -85,13 +85,138 @@ header .menu-toggle{
     display: none;
 }
 
+
 .content {
     margin: 0 auto;
-    max-width: 1100px;
+    max-width: 1500px;
     text-align: center;
+
 }
 
-.cart-content {
+.productContent {
+    margin: 0 auto;
+    max-width: 1500px;
+}
+
+.flexContent{
+    margin-top: 50px;
+    display: flex;                  /* establish flex container */
+    flex-direction: row;            /* default value; can be omitted */
+    flex-wrap: nowrap;              /* default value; can be omitted */
+    justify-content: space-between; /* switched from default (flex-start, see below) */
+    width: 100%;
+}
+#left {
+    border-right: lightgrey solid 1px;
+    flex-grow: 1;
+    height: 100%;
+    max-width: 60%;
+
+}
+
+#right {
+    flex: 1;
+    height: 100%;
+    max-width: 40%;
+
+
+}
+
+/* Stijl product div's */
+.product-title{
+    font-weight: bold;
+    font-size: 35px;
+}
+
+
+
+.product-price{
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: 5px;
+}
+.product-send{
+   color: black;
+    margin-top: 5px;
+
+}
+
+.product-quantity{
+    margin-top: 5px;
+}
+
+.product-discount{
+    color: red;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.product-cart{
+   width: 100%;
+}
+
+.product-conversion{
+    font-size: 20px;
+}
+
+.product-text{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.product-info{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.product-information .fa-plus-circle{
+    color: green;
+}
+
+.product-information .fa-minus-circle{
+    color: red;
+}
+
+
+/* LEFT */
+.productContent > .product-title{
+
+}
+
+.productContent > .product-score{
+
+}
+
+.productContent > .product-video{
+
+}
+.productContent > .product-foto{
+
+}
+
+.productContent > .product-review{
+
+}
+
+/* RIGHT */
+.productContent > .product-price{
+    width: 300px;
+    height: 150px;
+}
+
+.productContent > .discount-label blue{
+    width: 300px;
+    height: 85px;
+}
+
+.productContent > .product-cart{
+    width: 300px;
+    height: 70px;
+}
+
+
+/* WINKELWAGEN */
+.productContent > .cart-content {
     margin: 0 auto;
     max-width: 1100px;
     text-align: center;
@@ -387,6 +512,7 @@ form {
     color: white;
     height: 200px;
     position: relative;
+    margin-top: 50px;
 }
 
 .footer .footer-content{
@@ -619,19 +745,28 @@ form {
     font-size: 14px;
     cursor: pointer;
 }
+
+.productButton:hover{
+    background-color: lightgrey;
+}
+
 .toevoegenWWButton{
     text-transform: uppercase;
     outline: 0;
-    background: #f3d63d;
-    width: 300px;
+    background: #62b4cf;
+    width: 100%;
     border: 0;
     padding: 15px;
     color: #FFFFFF;
     font-size: 14px;
     cursor: pointer;
-
+    margin-top: 15px;
+    box-shadow: 0px 1.5px 3px 0px lightgrey;
 }
 
+.toevoegenWWButton:hover{
+  background-color: lightgrey;
+}
 
 
 /*rating stars*/
