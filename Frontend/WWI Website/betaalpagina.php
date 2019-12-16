@@ -8,20 +8,20 @@
 <?php
 include "Index.php";
 ?>
-            <div style="text-align: center" class="paymentMethod">
+            <div style="" class="paymentMethod">
                 <div class="paymentHeader">
                     <ul>
-                    <li style="display: inline">Winkelwagen</li>
-                    <li style="display: inline">Betaalmethode</li>
+                    <li>Winkelwagen</li>
+                    <li>Betaalmethode</li>
                     </ul>
                 </div>
-            <input type="radio" name="redirect" value="http://localhost/KBS_WWI/Frontend/WWI%20Website/Afgerondebetaling.php">Ideal<br>
-            <input type="radio" name="redirect" value="http://localhost/KBS_WWI/Frontend/WWI%20Website/Afgerondebetaling.php">Paypal<br>
-            <input type="radio" name="redirect" value="http://localhost/KBS_WWI/Frontend/WWI%20Website/Afgerondebetaling.php">Maestro<br>
+                <input type="image" name="redirect" value="http://localhost/KBS_WWI/Frontend/WWI%20Website/Afgerondebetaling.php" src="images/Logo's/ideal.png" ">Ideal<br>
+                <input type="image" name="redirect" value="http://localhost/KBS_WWI/Frontend/WWI%20Website/Afgerondebetaling.php" src="images/Logo's/paypal.png" ">Paypal<br>
+                <input type="image" name="redirect" value="http://localhost/KBS_WWI/Frontend/WWI%20Website/Afgerondebetaling.php" src="images/Logo's/maestro.png" t">Maestro<br>
 
             <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
             <script>
-                $('input[type="radio"]').on('click', function() {
+                $('input[type="image"]').on('click', function() {
                     window.location = $(this).val();
                 });
             </script>

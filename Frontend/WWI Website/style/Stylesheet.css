@@ -289,6 +289,23 @@ body .cartbackground {
 }
 
 
+/* Betaalpagina */
+
+.paymentMethod{
+    text-align: center;
+}
+
+.paymentMethod li{
+    display: inline;
+}
+
+.paymentMethod input{
+    display: inline;
+    max-width: 175px;
+    max-height: 175px;
+    display: inline;
+}
+
 /* WINKELWAGEN */
 .productContent > .cart-content {
     margin: 0 auto;
