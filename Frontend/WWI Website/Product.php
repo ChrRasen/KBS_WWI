@@ -42,8 +42,6 @@ $resultReview = mysqli_fetch_array($reviewQuery);
     <?php
     print("<br>");
 
-
-
     $korting = floatval($resultStockItemDetails['discount'] / 100);
     $prijs = floatval($resultStockItemDetails['UnitPrice']);
     $prijsMetKorting = $prijs * (1 - $korting);
@@ -130,29 +128,30 @@ $resultReview = mysqli_fetch_array($reviewQuery);
         }
     }
     echo '</div>';
+
     echo '<div class="product-cart">';
     echo ' <br>
 <form action="shopping_cart.php" method="get">
 <button type="submit" class="toevoegenWWButton" name="erbij" value="' . $StockID . '"> toevoegen aan winkelwagen</button>
 </form>';
 
-if($_SESSION["loggedin"] == true) {
-    echo '
-        <form action="Review.php" method="post">
-        <button type="submit" class="productButton" name="Review" value="' . $StockID . '"> Schrijf review </button>
-         </form>';
-}else{
-    print("login om review te schrijven". "<br>");
-    echo'<button type="submit" class="productButton" name="Review" value="' . $StockID . '"disabled> Schrijf review </button>';
 
-}
 
     echo '</div>';
     echo '<div class="product-review">';
     echo '
-<form action="Review.php" method="post">
-<button type="submit" class="productButton" name="Review" value="' . $StockID . '"> Schrijf review </button>
-</form>';
+<form action="Review.php" method="post">';
+    if(isset($_SESSION["loggedin"])){
+        echo '
+        <form action="Review.php" method="post">
+        <button type="submit" class="productButton" name="Review" value="' . $StockID . '"> Schrijf review </button>
+         </form>';
+    }else{
+        print("login om review te schrijven". "<br>");
+        echo'<button type="submit" class="productButton" name="Review" value="' . $StockID . '"disabled> Schrijf review </button>';
+
+    }
+    echo'</form>';
 
     //sql voor het krijgen van alle reviews met comentaar
 
