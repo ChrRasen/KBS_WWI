@@ -128,7 +128,6 @@ $resultReview = mysqli_fetch_array($reviewQuery);
 </form>';
 
         //sql voor het krijgen van alle reviews met comentaar
-
         $reviewComentaarQuery = mysqli_query($connection, "SELECT R.comentaar,R.score ,K.achternaam FROM review R join klantgegevens K ON K.email = R.email WHERE stockitemid = $StockID");
         while ($resultCR = mysqli_fetch_array($reviewComentaarQuery, MYSQLI_ASSOC)) {
             print($resultCR['achternaam'] . " score " . $resultCR['score']);
@@ -156,12 +155,14 @@ $resultReview = mysqli_fetch_array($reviewQuery);
             echo '</div>';
 
         } else {
+            echo '<div class="product-price">';
+            print("€   " . preg_replace('/\./', ',', $prijs . ",-"));
+            echo '</div>';
             echo '<div class="product-send">';
-            print("price per unit: €   " . preg_replace('/\./', ',', $prijs));
-            echo ' <font size = "4" color="Blue">   verzend kosten: €6,95</font>';
+            echo ' <font>   verzend kosten: €6,95</font>';
             echo '</div>';
             echo '<div class="product-quantity">';
-            print("Quantity on hand:  " . $quantity);
+            print("Aantal op voor voorraad:  " . $quantity);
             echo '</div>';
 
         }
