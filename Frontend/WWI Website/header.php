@@ -132,7 +132,7 @@ if(empty($_SESSION["loggedin"])){
         }
     }
     function autoChange() {
-        var timeID = setTimeout("location.href= './Home.php'", 3000)
+        var timeID = setTimeout("location.href= './Home.php'", 1500)
     }
 
 
