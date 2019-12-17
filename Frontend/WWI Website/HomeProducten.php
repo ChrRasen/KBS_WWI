@@ -1,10 +1,11 @@
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" media="all" href="style\StylesheetCAT.css">
     <link rel="stylesheet" type="text/css" media="all" href="style/stylesheet.css">
 </head>
 </html>
 <?php
+
+//haalt de producten op voor de home pagina doormiddel van query + random getal tussen 1 en 227.
 
 for($i = 0 ; $i < 3; $i++){
     $search = rand(1,227);

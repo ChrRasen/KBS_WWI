@@ -32,6 +32,8 @@ if($offset < 0){
 $offsetSQL = $limit * $offset;
 $_SESSION["Saantal"] = $limit;
 
+// haalt de waarde op van de input in het zoek veld
+
 if(isset($_GET['zoeken'])) {
     $search = "%" . $_GET['zoeken'] . "%";
     $search2 = $_GET['zoeken'];
@@ -41,6 +43,7 @@ if(isset($_GET['zoeken'])) {
 }
 $_SESSION["search"] = $search2;
 
+//query voor het zoeken van producten
 $searchQuery = "SELECT S.StockItemID,S.SearchDetails,S.StockItemName,S.UnitPrice,F.Photo FROM stockitems S
 JOIN foto F ON S.StockitemID = F.StockitemID
 WHERE S.StockItemName LIKE ? OR S.StockItemID = ? OR S.SearchDetails LIKE ? OR F.Photo = S.StockItemID
@@ -48,13 +51,16 @@ GROUP BY S.StockItemID
 ORDER BY S.StockItemID
 LIMIT ? OFFSET ?";
 
+//statements voor het verwerken van de query zoeken
 $searchSQL = mysqli_prepare($connection, $searchQuery);
 mysqli_stmt_bind_param($searchSQL, 'sssii', $search,$search2, $search, $limit, $offsetSQL);
 mysqli_stmt_execute($searchSQL);
 $result = mysqli_stmt_get_result($searchSQL);
 
+//query voor het aantal producten op voorraad
 $max ="SELECT COUNT(*) as maxitems FROM stockitems WHERE StockItemName LIKE ? OR StockItemID = ? OR SearchDetails LIKE ?";
 
+//statements voor het verwerken van de query aantal producten
 $maxSQL = mysqli_prepare($connection, $max);
 mysqli_stmt_bind_param($maxSQL, 'sss', $search,$search2, $search);
 mysqli_stmt_execute($maxSQL);
@@ -69,10 +75,12 @@ $maxPages = $maxitems / $limit;
 <html>
 <head></head>
 <body>
+<!-- De divjes voor de content en de header -->
 <div id="header"></div>
 <div id="content">
 <?php
 echo '<div id="header"></div>';
+//laat zien op de pagina wat de resultaten zijn van de zoek query en verwerkt deze in variabelen
 print("<h1>U heeft gezocht op: ".$search2. "</h1>");
 if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
     print("Vul iets in!");
@@ -145,6 +153,7 @@ if(!isset($_GET['zoeken']) && !isset($_SESSION["search"])){
 <div class="clearFloat"></div>
 
 <div id="footer"></div>
+<!-- haalt de header en de footer op doormiddel van javascript -->
 <script>
     $(function(){
         $("#header").load("header.php");
