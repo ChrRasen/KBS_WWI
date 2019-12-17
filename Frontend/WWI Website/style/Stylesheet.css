@@ -185,6 +185,8 @@ body .cartbackground {
     flex-grow: 1;
     height: 100%;
     max-width: 60%;
+    width: 50%;
+    float: left;
 
 }
 
@@ -192,7 +194,11 @@ body .cartbackground {
     flex: 1;
     height: 100%;
     max-width: 40%;
-
+    width: 32%;
+    float: right;
+    position: absolute;
+    top: 18%;
+    right: 7%;
 
 }
 

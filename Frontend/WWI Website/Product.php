@@ -41,7 +41,6 @@ $resultReview = mysqli_fetch_array($reviewQuery);
     <div class="flexContent">
 
         <?php
-        $resultReview = mysqli_fetch_array($reviewQuery);
 
         $korting = floatval($resultStockItemDetails['discount'] / 100);
         $prijs = floatval($resultStockItemDetails['UnitPrice']);
@@ -128,12 +127,14 @@ $resultReview = mysqli_fetch_array($reviewQuery);
 </form>';
 
         //sql voor het krijgen van alle reviews met comentaar
+        echo'<div class ="reviews">';
         $reviewComentaarQuery = mysqli_query($connection, "SELECT R.comentaar,R.score ,K.achternaam FROM review R join klantgegevens K ON K.email = R.email WHERE stockitemid = $StockID");
         while ($resultCR = mysqli_fetch_array($reviewComentaarQuery, MYSQLI_ASSOC)) {
-            print($resultCR['achternaam'] . " score " . $resultCR['score']."<br>");
-            print($resultCR['comentaar']."<br><br>");
+            print($resultCR['achternaam'] . " score " . $resultCR['score']. "<br>");
+            print($resultCR['comentaar']). "<br><br>";
         }
         }
+        echo '</div>';
         echo '</div>';
         echo '</div>';
         echo '</div>';
