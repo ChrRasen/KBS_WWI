@@ -33,6 +33,10 @@ $reviewQuery = mysqli_query($connection, "SELECT count(*) AS aantal ,sum(score) 
 $resultReview = mysqli_fetch_array($reviewQuery);
 
 
+if(isset($_SESSION["email"])) {
+    $email = $_SESSION["email"];
+}
+
 ?>
 <body>
 <!--<link rel="stylesheet" type="text/css" href="style/rating.css">-->
@@ -77,7 +81,7 @@ $resultReview = mysqli_fetch_array($reviewQuery);
             $iloop = 0;
             while ($iloop != 5) {
                 $iloop++;
-                if ($gemScore == $iloop) {
+                if (6-$gemScore == $iloop) {
                     echo '<input type="radio" name="rate" id="star' . $iloop . '" value="' . $iloop . '" hidden disabled checked> </input>
         <label for="star' . $iloop . '" ></label>';
                 } else {
@@ -128,10 +132,15 @@ $resultReview = mysqli_fetch_array($reviewQuery);
 
         //sql voor het krijgen van alle reviews met comentaar
         echo'<div class ="reviews">';
-        $reviewComentaarQuery = mysqli_query($connection, "SELECT R.comentaar,R.score ,K.achternaam FROM review R join klantgegevens K ON K.email = R.email WHERE stockitemid = $StockID");
+        $reviewComentaarQuery = mysqli_query($connection, "SELECT R.comentaar,R.score ,K.achternaam, R.email FROM review R join klantgegevens K ON K.email = R.email WHERE stockitemid = $StockID");
         while ($resultCR = mysqli_fetch_array($reviewComentaarQuery, MYSQLI_ASSOC)) {
             print($resultCR['achternaam'] . " score " . $resultCR['score']. "<br>");
             print($resultCR['comentaar']). "<br><br>";
+            if(isset($_SESSION["email"])) {
+                if ($resultCR["email"] == $email) {
+                    $reviewGeschreven = true;
+                }
+            }
         }
         }
         echo '</div>';

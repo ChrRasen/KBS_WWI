@@ -1,4 +1,7 @@
 <?php
+
+//inlog gegevens voor de database van WWI
+
     $host = "localhost";
     $databasename = "wideworldimporters";
     $user = "WWI_Admin";

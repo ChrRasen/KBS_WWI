@@ -5,6 +5,8 @@
 if(empty($_SESSION["loggedin"])){
     print("");
     print("<script>  
+//het herladen van de pagina wanneer je er voor het eerst komt.
+//bron:https://stackoverflow.com/questions/41322317/how-to-automatically-reload-a-web-page
  (function () {
     if(window.location.href == \"http://localhost/KBS_WWI/Frontend/WWI%20Website/header.php\")
     {
@@ -17,6 +19,7 @@ if(empty($_SESSION["loggedin"])){
     }
 })();
 </script>");
+    //voert script onderaan uit.
 }elseif($_SESSION["loggedin"] == true){
     print("<BODY onLoad=\"autoChange()\">");
 }else{
@@ -90,6 +93,7 @@ if(empty($_SESSION["loggedin"])){
 <!-- The Modal -->
 <div id="myModal" class="modal">
     <div class="form">
+<!--    alle gegevens bij registeren en inloggen    -->
         <form  class="register-form" action="header.php" method="post">
             <input type="text" name="naam" placeholder="voornaam"/>
             <input type="text" name="email" placeholder="email address"/>
@@ -131,6 +135,8 @@ if(empty($_SESSION["loggedin"])){
             modal.style.display = "none";
         }
     }
+    //Na het inloggen word je teruggestuurd naar de home pagina
+    //Bron: https://stackoverflow.com/questions/15655073/settimeout-and-window-location-location-href-not-working
     function autoChange() {
         var timeID = setTimeout("location.href= './Home.php'", 1500)
     }
