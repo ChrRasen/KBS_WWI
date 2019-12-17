@@ -141,6 +141,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 <div class="clearFloat" top="10px"></div>
 <div id="footer"></div>
 <script>
+    //    Javascript die header en footer ophaald.
     $(function(){
         $("#header").load("header.php");
 

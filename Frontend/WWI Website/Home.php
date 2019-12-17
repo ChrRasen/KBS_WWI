@@ -35,6 +35,7 @@ unset($_SESSION["ProductID"]);
 
 <div class="content">
 <div class="row">
+<!--  haalt drie producten op per include  -->
     <div class="row-1"><h2>Eerder bekeken</h2><?php
         include "HomeProducten.php";
         ?></div>
@@ -62,6 +63,7 @@ unset($_SESSION["ProductID"]);
         crossorigin="anonymous">
 </script>
 <script>
+//    Javascript die de header en footer ophaald
     $(function(){
         $("#header").load("header.php");
 

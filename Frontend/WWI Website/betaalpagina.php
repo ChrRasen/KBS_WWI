@@ -45,6 +45,7 @@ include "Index.php";
 <div class="clearFloat"></div>
 <div id="footer"></div>
 <script>
+    //    Javascript die header en footer ophaald.
     $(function(){
         $("#header").load("header.php");
 
