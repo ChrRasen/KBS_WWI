@@ -4,7 +4,7 @@
 </head>
 <body>
 <div id="header"></div>
-<div id="content"></div>
+<div class="content">
     <?php
     include "DatabaseConnection.php";
     include "Index.php";
@@ -25,6 +25,8 @@
     <center><img src="Project/Afgerond.jpg" alt="Afgerond"  height="450" width="450"></center>
     <br>
     <br>
+</div>
+<div class="clearFloat"></div>
 <div id="footer"></div>
 <script>
     $(function(){
@@ -33,5 +35,6 @@
         $("#footer").load("footer.php");
     });
 </script>
+
 </body>
 </html>

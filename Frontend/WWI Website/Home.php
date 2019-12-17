@@ -1,7 +1,9 @@
 <html>
 <head>
 
-<?php include "index.php" ?>
+<?php include "index.php";
+unset($_SESSION["ProductID"]);
+?>
 </head>
 <body>
 

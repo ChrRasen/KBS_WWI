@@ -2,101 +2,46 @@
 
 <body>
 <div id="header"></div>
-        <div id="content">
-            <h3>Winkelwagen</h3>
+        <div class="content">
+
 
 <?php
-include "DatabaseConnection.php";
 include "Index.php";
-
-$producten = array();
-$geldopslag = array();
-if(empty($_SESSION["Ses_producten"])){
-    print('');
-}elseif (!($_SESSION["Ses_producten"] === null)){
-    $producten = $_SESSION["Ses_producten"];
-}
-
-if(isset ($_GET["erbij"])  ) {
-    $erbij = $_GET["erbij"];
-    $producten["$erbij"] = 1;
-}
-
-foreach ($producten as $index => $waarde) {
-    if(isset ($_GET[$index])) {
-        $quant = $_GET[$index];
-        $producten[$index] = $quant;
-    }
-}
-foreach($producten as $index => $waarde){
-if($waarde == null){
-    unset($producten[$index]);
-}
-}
-
-echo '<form action="shopping_cart.php" method="get">'; // Create form
-foreach($producten as $index => $waarde) {
-    $sqlquery = mysqli_query($connection, "SELECT StockItemName FROM stockitems WHERE StockItemID = $index");
-    if (!$sqlquery) {
-        printf("Error: %s\n", mysqli_error($connection));
-        exit();
-    }
-
-    $resultStockItemName = mysqli_fetch_array($sqlquery, MYSQLI_BOTH);
-    $naam = $resultStockItemName["StockItemName"];
-
-    $sqlquery2 = mysqli_query($connection, "SELECT UnitPrice FROM stockitems WHERE StockItemID = $index");
-
-    $resultUnitPrice = mysqli_fetch_array($sqlquery2, MYSQLI_BOTH);
-    $PrijsPerStuk = $resultUnitPrice["UnitPrice"];
-
-    echo  $naam . " " . "Aantal: ";
-
-    if(!($waarde == null)) {
-        $PrijsPerProduct = ($PrijsPerStuk * $waarde);
-
-        echo($waarde . " totaal: " .  "€" . preg_replace('/\./', ',', $PrijsPerProduct ));
-
-
-        $geldopslag[$index] = $PrijsPerProduct;
-    }
-    echo '<br>';
-}
-
-$totaalbedrag = array_sum($geldopslag);
-if($totaalbedrag > 0) {
-    if ($totaalbedrag <= 40) {
-        $totaalbedrag = $totaalbedrag + 6.95;
-    }
-}
-if($totaalbedrag == 0) {
-    print('uw winkelwagen is leeg' . '<br>');
-}
-print("Verzendkosten: € 6,95" . "<br>");
-print("uw totaal bedrag is: € " .  preg_replace('/\./', ',', $totaalbedrag ));
 ?>
+            <div class="paymentMethod">
+                <div class="paymentHeader">
+                    <ul>
+                        <li style="color: black "><a href="http://localhost/KBS_WWI/Frontend/WWI%20Website/shopping_cart.php">Winkelwagen</a></li>
+                    <li style="color: white; background-color: #62b4cf">Betaalmethode</li>
+                        <li style="color: black;">Order review</li>
+                    </ul>
+                </div>
+                <input type="image" name="redirect" value="http://localhost/KBS_WWI/Frontend/WWI%20Website/Afgerondebetaling.php" src="images/Logo's/ideal.png" alt="submit" ">
+                <input type="image" name="redirect" value="http://localhost/KBS_WWI/Frontend/WWI%20Website/Afgerondebetaling.php" src="images/Logo's/paypal.png"alt="submit"  ">
+                <input type="image" name="redirect" value="http://localhost/KBS_WWI/Frontend/WWI%20Website/Afgerondebetaling.php" src="images/Logo's/maestro.png"alt="submit"style="
+    margin-bottom: 30  ">
 
-    </div>
-
-    <div>
-                        <h3>Betaalmethode</h3>
-                        <input type="radio" name="redirect" value="http://localhost/KBS_WWI/Frontend/WWI%20Website/Afgerondebetaling.php">Ideal<br>
-                        <input type="radio" name="redirect" value="http://localhost/KBS_WWI/Frontend/WWI%20Website/Afgerondebetaling.php">Paypal<br>
-                        <input type="radio" name="redirect" value="http://localhost/KBS_WWI/Frontend/WWI%20Website/Afgerondebetaling.php">Maestro<br>
-
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script>
-            $('input[type="radio"]').on('click', function() {
-                window.location = $(this).val();
-            });
-        </script>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+            <script>
+                $('input[type="image"]').on('click', function() {
+                    window.location = $(this).val();
+                });
+            </script>
 
             </form>
+
+            </div>
+            </div>
         </div>
-    </div>
+</div>
 
 
 </div>
+
+    </div>
+
+
+
 <div class="clearFloat"></div>
 <div id="footer"></div>
 <script>

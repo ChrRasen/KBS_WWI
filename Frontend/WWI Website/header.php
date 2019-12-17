@@ -1,16 +1,29 @@
 <html>
 <head>
     <?php include "./Index.php" ?>
-</head>
 <?php
 if(empty($_SESSION["loggedin"])){
     print("");
+    print("<script>  
+ (function () {
+    if(window.location.href == \"http://localhost/KBS_WWI/Frontend/WWI%20Website/header.php\")
+    {
+        if (window.localStorage) {
+            if (!localStorage.getItem('firstLoad')) {
+                localStorage['firstLoad'] = true;
+                window.location.reload();
+            } else localStorage.removeItem('firstLoad');
+        }
+    }
+})();
+</script>");
 }elseif($_SESSION["loggedin"] == true){
     print("<BODY onLoad=\"autoChange()\">");
 }else{
     print("<BODY>");
 }
 ?>
+</head>
 
 <header>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -121,17 +134,8 @@ if(empty($_SESSION["loggedin"])){
     function autoChange() {
         var timeID = setTimeout("location.href= './Home.php'", 1500)
     }
-    (function () {
-        if(window.location.href == "http://localhost/KBS_WWI/Frontend/WWI%20Website/header.php")
-        {
-            if (window.localStorage) {
-                if (!localStorage.getItem('firstLoad')) {
-                    localStorage['firstLoad'] = true;
-                    window.location.reload();
-                } else localStorage.removeItem('firstLoad');
-            }
-        }
-    })();
+
+
 </script>
 <?php
 include('Registreerpagina.php');
@@ -141,4 +145,23 @@ include('Inlogpagina.php');
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
