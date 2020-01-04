@@ -1,5 +1,5 @@
 /*<! --  Dropdown menu --> */
-
+/* bron https://www.w3schools.com/howto/howto_js_dropdown.asp */
 var x, i, j, selElmnt, a, b, c;
 /*look for any elements with the class "custom-select":*/
 x = document.getElementsByClassName("custom-select");
@@ -74,7 +74,7 @@ then close all select boxes:*/
 document.addEventListener("click", closeAllSelect);
 
 /*<! --  Slideshow --> */
-
+/* Bron https://www.w3schools.com/howto/howto_js_slideshow.asp */
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -101,6 +101,8 @@ function showSlides(n) {
     slides[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " active";
 }
+
+
 
 $(document).ready(function() {
     $('.menu-toggle').on('click', function() {
